@@ -1,0 +1,105 @@
+.content {
+    background-color: white;
+}
+
+.header-box {
+    text-align: center;
+}
+
+h1.header-title {
+    margin-top: 0.5rem;
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #111827;
+}
+
+h2.header-subtitle {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--tec-blue);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+h2.content-subtitle {
+    margin-top: 0.5rem;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #111827;
+}
+
+.content-info-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    max-width: 42rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.content-info-box .content-info {
+    display: flex;
+    flex-basis: 50%;
+}
+
+.content-info-box .content-info .info-icon {
+    margin-top: 0.25rem;
+    color: var(--gray-500);
+}
+
+.content-info-box .content-info .info-text {
+    color: var(--gray-500);
+}
+
+p {
+    text-align: justify;
+    font-size: large;
+}
+
+.subtitle-box {
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+.element-box {
+    display: flex;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    justify-content: center;
+}
+
+.element-box-short-text {
+    display: flex;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    justify-content: left;
+}
+
+svg.canvas:hover {
+    cursor: crosshair;
+}
+
+.element-box .canvas-button {
+    position: relative;
+    width: 15rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-width: 1px;
+    border-color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 0.4rem;
+    color: white;
+    background-color: var(--tec-blue)
+}
+
+.element-box .canvas-button:hover {
+    background-color: var(--yale-blue)
+}

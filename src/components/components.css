@@ -1,19 +1,10 @@
-:root {
-    --tec-blue: #0658A6;
-    --true-blue: #0566CF;
-    --yale-blue: #074A7D;
-    --gray-100: #f3f4f6;
-    --gray-500: #6b7280;
-    --gray-900: #111827;
-}
-
 header {
     position: relative;
 }
 
 .header-box {
     max-width: 80rem;
-    margin: auto;
+    margin: auto auto 2rem auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
@@ -122,8 +113,7 @@ nav.nav-box .header-breadcrumb:hover {
 
 footer {
     max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 3rem auto auto auto;
     padding-left: 1rem;
     padding-right: 1rem;
 }
