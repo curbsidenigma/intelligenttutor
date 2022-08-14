@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './components.css'
 
 const Header = () => {
@@ -7,7 +8,7 @@ const Header = () => {
             <div className='header-box'>
                 <div className='header-items'>
                     <div className='logo-box'>
-                        <div className='logo'>
+                        <Link to='/' className='logo'>
                             <img src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
                             <div className='logo-text'>
                                 <div className='logo-subtitle-text'>
@@ -17,7 +18,7 @@ const Header = () => {
                                     <p>Asesor Inteligente</p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                     <nav className='nav-box'>
                         <div className='header-breadcrumb'>
