@@ -29,7 +29,7 @@ const Header = () => {
                         </Link>
                     </nav>
                     <div className='login-nav-box'>
-                        <Link to='/intelligenttutor/404/' className='login'>
+                        <Link to='/intelligenttutor/ingresar/' className='login'>
                             Ingresar
                         </Link>
                         <Link to='/intelligenttutor/404/' className='register'>

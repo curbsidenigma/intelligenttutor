@@ -112,6 +112,7 @@ nav.nav-box .header-breadcrumb:hover {
 }
 
 footer {
+    position: relative;
     max-width: 80rem;
     margin: 3rem auto auto auto;
     padding-left: 1rem;
