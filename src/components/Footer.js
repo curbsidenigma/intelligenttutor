@@ -6,7 +6,7 @@ const Footer = () => {
         <footer>
             <div className='footer-box'>
                 <div className='logo-box'>
-                    <Link to='/' className='logo'>
+                    <Link to='/intelligenttutor/' className='logo'>
                         <img src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
                         <div className='logo-text'>
                             <div className='logo-subtitle-text'>
@@ -20,16 +20,16 @@ const Footer = () => {
                 </div>
                 <ul className='footer-items'>
                     <li>
-                        <Link to='/' className='footer-breadcrumb'>Acerca de</Link>
+                        <Link to='/intelligenttutor/404/' className='footer-breadcrumb'>Acerca de</Link>
                     </li>
                     <li>
-                        <Link to='/' className='footer-breadcrumb'>Política de privacidad</Link>
+                        <Link to='/intelligenttutor/404/' className='footer-breadcrumb'>Política de privacidad</Link>
                     </li>
                     <li>
-                        <Link to='/' className='footer-breadcrumb'>Licencia</Link>
+                        <Link to='/intelligenttutor/404/' className='footer-breadcrumb'>Licencia</Link>
                     </li>
                     <li>
-                    <Link to='/' className='hover:underline'>Contacto</Link>
+                        <Link to='/intelligenttutor/404/' className='hover:underline'>Contacto</Link>
                     </li>
                 </ul>
             </div>

@@ -8,7 +8,7 @@ const Header = () => {
             <div className='header-box'>
                 <div className='header-items'>
                     <div className='logo-box'>
-                        <Link to='/intelligenttutor' className='logo'>
+                        <Link to='/intelligenttutor/' className='logo'>
                             <img src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
                             <div className='logo-text'>
                                 <div className='logo-subtitle-text'>
@@ -21,20 +21,20 @@ const Header = () => {
                         </Link>
                     </div>
                     <nav className='nav-box'>
-                        <div className='header-breadcrumb'>
-                            <p>Lecciones</p>
-                        </div>
-                        <div className='header-breadcrumb'>
-                            <p>Ejercicios</p>
-                        </div>
+                        <Link to='/intelligenttutor/404/' className='header-breadcrumb'>
+                            Lecciones
+                        </Link>
+                        <Link to='/intelligenttutor/404/' className='header-breadcrumb'>
+                            Ejercicios
+                        </Link>
                     </nav>
                     <div className='login-nav-box'>
-                        <div className='login'>
+                        <Link to='/intelligenttutor/404/' className='login'>
                             Ingresar
-                        </div>
-                        <div className='register'>
+                        </Link>
+                        <Link to='/intelligenttutor/404/' className='register'>
                             Registrarse
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
