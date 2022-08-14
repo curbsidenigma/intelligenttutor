@@ -8,7 +8,7 @@ const Header = () => {
             <div className='header-box'>
                 <div className='header-items'>
                     <div className='logo-box'>
-                        <Link to='/' className='logo'>
+                        <Link to='/intelligenttutor' className='logo'>
                             <img src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
                             <div className='logo-text'>
                                 <div className='logo-subtitle-text'>

@@ -11,7 +11,7 @@ function App() {
       <div>
         <Routes>
           <Route
-            path='/'
+            path='/intelligenttutor'
             element={<Home/>}
           />
         </Routes>
