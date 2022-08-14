@@ -2,6 +2,11 @@
     background-color: white;
 }
 
+.no-content-box {
+    background-color: white;
+    margin: 170px;
+}
+
 .header-box {
     text-align: center;
 }

@@ -1,0 +1,173 @@
+.content {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-box {
+    max-width: 28rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.title-box .title-logo {
+    margin-left: auto;
+    margin-right: auto;
+    height: 3rem;
+    width: auto;
+}
+
+.title-box .title {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+p.description {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--gray-600);
+}
+
+.register-link {
+    font-weight: 500;
+    color: var(--tec-blue);
+}
+
+.register-link:hover {
+    color: var(--yale-blue);
+}
+
+form {
+    margin-top: 1.5rem;
+}
+
+.login-box {
+    border-radius: 0.375rem;
+    margin-bottom: 1.5rem;
+}
+
+.login-box input {
+    appearance: none;
+    border-radius: 0px;
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-width: 1px;
+    border-color: var(--gray-300);
+    color: var(--gray-900);
+}
+
+.login-box input::placeholder {
+    color: var(--gray-500);
+}
+
+.login-box input:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--tec-blue);
+    z-index: 10;
+}
+
+input.top-input {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+    border-bottom-color: transparent;
+}
+
+input.top-input:focus {
+    border-bottom-color: var(--tec-blue);
+}
+
+input.bottom-input {
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.password-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remember-box {
+    display: flex;
+    align-items: center;
+}
+
+.remember-box input[type='checkbox'] {
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    color: var(--tec-blue);
+    border-color: var(--gray-300);
+    border-radius: 0.25rem;
+}
+
+.remember-box input[type='checkbox']:focus {
+    border-color: var(--true-blue);
+}
+
+.remember-box label {
+    margin-left: 0.5rem;
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--gray-900);
+}
+
+.forget-text {
+    font-weight: 500;
+    color: var(--tec-blue);
+}
+
+.forget-text:hover {
+    color: var(--yale-blue);
+}
+
+button.login-button {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    border-width: 1px;
+    border-color: transparent;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    color: white;
+    background-color: var(--tec-blue);
+}
+
+.login-button:hover {
+    background-color: var(--yale-blue);
+}
+
+.login-button:focus {
+    outline: none;
+}
+
+.button-svg {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 0.75rem;
+}
+
+.button-svg svg {
+    height: 1.25rem;
+    width: 1.25rem;
+    color: var(--tec-blue);
+}

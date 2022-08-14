@@ -1,8 +1,10 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import './styles/app.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import Ingresar from './pages/Ingresar'
 import NoContent from './pages/NoContent'
 
 function App() {
@@ -16,12 +18,18 @@ function App() {
             element={<Home/>}
           />
           <Route
+            path='/intelligenttutor/ingresar'
+            element={<Ingresar/>}
+          />
+          <Route
             path='/intelligenttutor/404/'
             element={<NoContent/>}
           />
         </Routes>
       </div>
-      <Footer/>
+      <div className='footer'>
+        <Footer/>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import '../styles/pages.css'
 
 const NoContent = () => {
     return (
-        <div className='content'>
+        <div className='no-content-box'>
             <div className='header-box'>
                 <h2 className='header-subtitle'>NOVUS Asesor Inteligente</h2>
                 <h1 className='header-title'>¡Vaya! No hay contenido</h1>
