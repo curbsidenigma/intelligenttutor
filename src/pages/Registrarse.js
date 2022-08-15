@@ -1,18 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../styles/ingresar-registrarse.css'
 
-const Ingresar = () => {
+const Registrarse = () => {
     return (
         <div className='content'>
             <div className='title-box'>
                 <div>
                     <img className='title-logo' src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
-                    <h2 className='title'>Ingresa</h2>
+                    <h2 className='title'>Regístrate</h2>
                     <p className='description'>
                         O&nbsp;
-                        <Link to='/intelligenttutor/registrarse/' className='register-link'>crea tu cuenta</Link>
-                        &nbsp;si no tienes una
+                        <Link to='/intelligenttutor/ingresar/' className='register-link'>ingresa con tu cuenta</Link>
+                        &nbsp;si ya tienes una
                     </p>
                 </div>
                 <form>
@@ -20,12 +19,16 @@ const Ingresar = () => {
 
                     <div className='login-box shadow-sm -space-y-px'>
                         <div>
+                            <label for='name' className='sr-only'>Nombre</label>
+                            <input required type='text' name='name' placeholder='Nombre' className='top-input'/>
+                        </div>
+                        <div>
                             <label for='email' className='sr-only'>Email</label>
-                            <input required type='text' name='email' placeholder='Email' className='top-input focus:ring-tec-blue'/>
+                            <input required type='text' name='email' placeholder='Email' className='middle-input'/>
                         </div>
                         <div>
                             <label for='password' className='sr-only'>Contraseña</label>
-                            <input required type='password' name='password' placeholder='Contraseña' className='bottom-input focus:ring-tec-blue'/>
+                            <input required type='password' name='password' placeholder='Contraseña' className='bottom-input'/>
                         </div>
                     </div>
 
@@ -33,11 +36,6 @@ const Ingresar = () => {
                         <div className='remember-box'>
                             <input type='checkbox'/>
                             <label for='remember-me'>Recordarme</label>
-                        </div>
-                        <div className='text-sm'>
-                            <Link to='/intelligenttutor/404/' className='forget-text hover:text-true-blue'>
-                                ¿Olvidaste tu contraseña?
-                            </Link>
                         </div>
                     </div>
 
@@ -58,4 +56,4 @@ const Ingresar = () => {
     )
 }
 
-export default Ingresar
+export default Registrarse

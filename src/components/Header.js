@@ -32,7 +32,7 @@ const Header = () => {
                         <Link to='/intelligenttutor/ingresar/' className='login'>
                             Ingresar
                         </Link>
-                        <Link to='/intelligenttutor/404/' className='register'>
+                        <Link to='/intelligenttutor/registrarse' className='register'>
                             Registrarse
                         </Link>
                     </div>
