@@ -24,7 +24,7 @@ const Header = () => {
                         <Link to='/intelligenttutor/404/' className='header-breadcrumb'>
                             Lecciones
                         </Link>
-                        <Link to='/intelligenttutor/404/' className='header-breadcrumb'>
+                        <Link to='/intelligenttutor/ejercicios' className='header-breadcrumb'>
                             Ejercicios
                         </Link>
                     </nav>

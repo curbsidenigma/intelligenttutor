@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Ingresar from './pages/Ingresar'
 import Registrarse from './pages/Registrarse'
+import Ejercicios from './pages/Ejercicios'
 import NoContent from './pages/NoContent'
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
           <Route
             path='/intelligenttutor/registrarse/'
             element={<Registrarse/>}
+          />
+          <Route
+            path='/intelligenttutor/ejercicios'
+            element={<Ejercicios/>}
           />
           <Route
             path='/intelligenttutor/404/'

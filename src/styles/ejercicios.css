@@ -1,0 +1,71 @@
+.exercises-content {
+    background-color: white;
+}
+
+.exercises-header-box {
+    text-align: center;
+}
+
+.exercises-header-box h1.exercises-header-title {
+    margin-top: 0.5rem;
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #111827;
+}
+
+.exercises-header-box h2.exercises-header-subtitle {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--tec-blue);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+.exercises-content p.exercises-slogan {
+    margin: 1rem auto auto auto;
+    max-width: 42rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: var(--gray-500);
+}
+
+.exercises-grid-container {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.exercises-grid-container .grid-container {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 3rem;
+}
+
+.grid-container .grid-element {
+    position: relative;
+    width: 100%;
+    height: 14rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+h3.subject-title {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--gray-500);
+}
+
+p.exercise-title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-900);
+}
