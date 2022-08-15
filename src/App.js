@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Ingresar from './pages/Ingresar'
+import Registrarse from './pages/Registrarse'
 import NoContent from './pages/NoContent'
 
 function App() {
@@ -18,8 +19,12 @@ function App() {
             element={<Home/>}
           />
           <Route
-            path='/intelligenttutor/ingresar'
+            path='/intelligenttutor/ingresar/'
             element={<Ingresar/>}
+          />
+          <Route
+            path='/intelligenttutor/registrarse/'
+            element={<Registrarse/>}
           />
           <Route
             path='/intelligenttutor/404/'
