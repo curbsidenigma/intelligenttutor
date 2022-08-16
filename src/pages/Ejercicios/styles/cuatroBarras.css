@@ -37,3 +37,9 @@
     width: calc(1/2 * 100%);
     vertical-align: top;
 }
+
+.cuatro-barras-space {
+    display: table-cell;
+    width: 25%;
+    vertical-align: top;
+}

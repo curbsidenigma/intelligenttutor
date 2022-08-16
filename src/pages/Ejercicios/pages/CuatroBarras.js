@@ -1,6 +1,7 @@
 import React from 'react'
 import { Element } from 'react-scroll'
 import '../styles/cuatroBarras.css'
+import Sidebar from './CuatroBarras/components/Sidebar'
 
 const CuatroBarras = () => {
     return (
@@ -10,11 +11,11 @@ const CuatroBarras = () => {
                     <div className='sidebar-space'>
                     </div>
                     <div className='sidebar-content'>
-                        <h1>Sidebar</h1>
+                        <Sidebar/>
                     </div>
                 </div>
             </div>
-            <div className='[display:table-cell] w-1/2 align-top'>
+            <div className='main-content'>
                 <Element name='introduccion' className='element'>
                     <h1>Introduccion</h1>
                 </Element>
@@ -31,7 +32,7 @@ const CuatroBarras = () => {
                     <h1>Paso Cuatro</h1>
                 </Element>
             </div>
-            <div className='[display:table-cell] w-1/4 align-top'>
+            <div className='cuatro-barras-space'>
             </div>
         </div>
     )
