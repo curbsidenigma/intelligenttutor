@@ -2,6 +2,7 @@ import React from 'react'
 import { Element } from 'react-scroll'
 import '../styles/cuatroBarras.css'
 import Sidebar from './CuatroBarras/components/Sidebar'
+import Introduccion from './CuatroBarras/components/Introduccion'
 
 const CuatroBarras = () => {
     return (
@@ -17,7 +18,7 @@ const CuatroBarras = () => {
             </div>
             <div className='main-content'>
                 <Element name='introduccion' className='element'>
-                    <h1>Introduccion</h1>
+                    <Introduccion/>
                 </Element>
                 <Element name='paso-uno' className='element'>
                     <h1>Paso Uno</h1>
