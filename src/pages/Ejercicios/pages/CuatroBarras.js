@@ -21,7 +21,31 @@ const CuatroBarras = () => {
                     <Introduccion/>
                 </Element>
                 <Element name='paso-uno' className='element'>
-                    <h1>Paso Uno</h1>
+                    <div className='exercise-content'>
+                        <div className='subtitle-box'>
+                            <h2 className='subtitle'>Paso Uno: Diagrama o Boceto</h2>
+                        </div>
+                        <div className='parragraph-box'>
+                            <p>Para comenzar, dibujaremos el diagrama de cuerpo libre. Haz clic en cualquier lugar del lienzo para dibujar los puntos que corresponden a las juntas del mecanismo. Una vez terminado el boceto haz clic en el botón Dibujar para unir los puntos y crear los eslabones. Puedes realizar el dibujo cuantas veces quieras, únicamente tienes que seleccionar el botón Reiniciar (ten en cuenta que esto hará que el ejercicio completo vuelva a comenzar).</p>
+                        </div>
+                        {/* Begin canvas */}
+                        <div className='canvas-box'>
+                            <svg className='canvas drop-shadow-md' width={700} height={400}>
+                                <g>
+                                    <rect
+                                        width={700}
+                                        height={400}
+                                        rx={10}
+                                        ry={10}
+                                        fill={'white'}
+                                        stroke={'white'}
+                                        strokeWidth={1}
+                                    />
+                                </g>
+                            </svg>
+                        </div>
+                        {/* End canvas */}
+                    </div>
                 </Element>
                 <Element name='paso-dos' className='element'>
                     <h1>Paso Dos</h1>

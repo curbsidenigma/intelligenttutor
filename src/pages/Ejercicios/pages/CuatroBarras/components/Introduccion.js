@@ -16,7 +16,7 @@ const Introduccion = () => {
                         <AiOutlineCalendar/>
                     </span>
                     <span className='info-text'>
-                        &nbsp;&nbsp;Publicado el 4 de abril de 2022
+                        &nbsp;&nbsp;Publicado el 12 de agosto de 2022
                     </span>
                 </div>
                 <div className='content-info'>
@@ -24,7 +24,7 @@ const Introduccion = () => {
                         <AiOutlineClockCircle/>
                     </span>
                     <span className='info-text'>
-                        &nbsp;&nbsp;Actualizado el 13 de agosto de 2022
+                        &nbsp;&nbsp;Actualizado el 20 de agosto de 2022
                     </span>
                 </div>
                 <div className='content-info'>
