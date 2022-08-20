@@ -1,10 +1,10 @@
 import React from 'react'
 import { Element } from 'react-scroll'
-import '../styles/cuatroBarras.css'
-import Sidebar from './CuatroBarras/components/Sidebar'
-import Introduccion from './CuatroBarras/components/Introduccion'
+import '../styles/cinematicaDinamicaMecanismos.css'
+import Sidebar from './CinematicaDinamicaMecanismos/components/Sidebar'
+import Introduccion from './CinematicaDinamicaMecanismos/components/Introduccion'
 
-const CuatroBarras = () => {
+const CinematicaDinamicaMecanismos = () => {
     return (
         <div className='cuatro-barras-content'>
             <div className='sidebar-content'>
@@ -21,11 +21,11 @@ const CuatroBarras = () => {
                     <Introduccion/>
                 </Element>
                 <Element name='paso-uno' className='element'>
-                    <div className='exercise-content'>
+                    <div className='section-content'>
                         <div className='subtitle-box'>
                             <h2 className='subtitle'>Paso Uno: Diagrama o Boceto</h2>
                         </div>
-                        <div className='parragraph-box'>
+                        <div className='paragraph-box'>
                             <p>Para comenzar, dibujaremos el diagrama de cuerpo libre. Haz clic en cualquier lugar del lienzo para dibujar los puntos que corresponden a las juntas del mecanismo. Una vez terminado el boceto haz clic en el botón Dibujar para unir los puntos y crear los eslabones. Puedes realizar el dibujo cuantas veces quieras, únicamente tienes que seleccionar el botón Reiniciar (ten en cuenta que esto hará que el ejercicio completo vuelva a comenzar).</p>
                         </div>
                         {/* Begin canvas */}
@@ -48,13 +48,34 @@ const CuatroBarras = () => {
                     </div>
                 </Element>
                 <Element name='paso-dos' className='element'>
-                    <h1>Paso Dos</h1>
+                    <div className='section-content'>
+                        <div className='subtitle-box'>
+                            <h2 className='subtitle'>Paso Dos: Identificar Teoría, Conceptos y Fórmulas</h2>
+                        </div>
+                        <div className='paragraph-box'>
+                            <p>Una vez realizado el dibujo, es importante identificar las variables correspondientes al boceto dibujado en el paso anterior. Estas son la longitud de cada uno de los eslabones y el ángulo de entrada que se mide con respecto a la tierra, o mejor conocida como bancada. Todos estos datos se muestran en la siguiente tabla.</p>
+                        </div>
+                    </div>
                 </Element>
                 <Element name='paso-tres' className='element'>
-                    <h1>Paso Tres</h1>
+                    <div className='section-content'>
+                        <div className='subtitle-box'>
+                            <h2 className='subtitle'>Paso Tres: Documentar la Información Necesaria</h2>
+                        </div>
+                        <div className='paragraph-box'>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a tincidunt est, nec sollicitudin dui. Pellentesque auctor tellus eu ipsum tempus efficitur. Cras varius augue sit amet ipsum dapibus dictum. Vestibulum dapibus sit amet arcu sit amet fermentum. Maecenas consectetur risus sit amet velit congue, vel blandit dui ornare.</p>
+                        </div>
+                    </div>
                 </Element>
                 <Element name='paso-cuatro' className='element'>
-                    <h1>Paso Cuatro</h1>
+                    <div className='section-content'>
+                        <div className='subtitle-box'>
+                            <h2 className='subtitle'>Paso Cuatro: Resolver, Analizar y Verificar</h2>
+                        </div>
+                        <div className='paragraph-box'>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a tincidunt est, nec sollicitudin dui. Pellentesque auctor tellus eu ipsum tempus efficitur. Cras varius augue sit amet ipsum dapibus dictum. Vestibulum dapibus sit amet arcu sit amet fermentum. Maecenas consectetur risus sit amet velit congue, vel blandit dui ornare.</p>
+                        </div>
+                    </div>
                 </Element>
             </div>
             <div className='cuatro-barras-space'>
@@ -63,4 +84,4 @@ const CuatroBarras = () => {
     )
 }
 
-export default CuatroBarras
+export default CinematicaDinamicaMecanismos

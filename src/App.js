@@ -8,7 +8,7 @@ import Ingresar from './pages/Ingresar'
 import Registrarse from './pages/Registrarse'
 import Ejercicios from './pages/Ejercicios'
 import NoContent from './pages/NoContent'
-import CuatroBarras from './pages/Ejercicios/pages/CuatroBarras'
+import CinematicaDinamicaMecanismos from './pages/Ejercicios/pages/CinematicaDinamicaMecanismos'
 
 function App() {
   return (
@@ -29,12 +29,12 @@ function App() {
             element={<Registrarse/>}
           />
           <Route
-            path='/intelligenttutor/ejercicios'
+            path='/intelligenttutor/ejercicios/'
             element={<Ejercicios/>}
           />
             <Route
-              path='intelligenttutor/ejercicios/mecanismos-de-cuatro-barras'
-              element={<CuatroBarras/>}
+              path='/intelligenttutor/ejercicios/cinematica-mecanica-mecanismos/'
+              element={<CinematicaDinamicaMecanismos/>}
             />
           <Route
             path='/intelligenttutor/404/'
