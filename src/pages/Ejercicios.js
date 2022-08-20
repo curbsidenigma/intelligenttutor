@@ -17,7 +17,7 @@ const Ejercicios = () => {
                             <img src='https://cdn.stocksnap.io/img-thumbs/960w/still-items_LCLKTHHCMX.jpg' alt='Mecanismos de cuatro barras'/>
                         </div>
                         <h3 className='subject-title'>
-                            <Link to='/intelligenttutor/404/'>
+                            <Link to='/intelligenttutor/ejercicios/mecanismos-de-cuatro-barras/'>
                                 <span className='absolute inset-0'></span>
                                 Análisis y Simulación de Mecanismos
                             </Link>

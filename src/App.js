@@ -8,6 +8,7 @@ import Ingresar from './pages/Ingresar'
 import Registrarse from './pages/Registrarse'
 import Ejercicios from './pages/Ejercicios'
 import NoContent from './pages/NoContent'
+import CuatroBarras from './pages/Ejercicios/pages/CuatroBarras'
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
             path='/intelligenttutor/ejercicios'
             element={<Ejercicios/>}
           />
+            <Route
+              path='intelligenttutor/ejercicios/mecanismos-de-cuatro-barras'
+              element={<CuatroBarras/>}
+            />
           <Route
             path='/intelligenttutor/404/'
             element={<NoContent/>}
