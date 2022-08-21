@@ -8,7 +8,7 @@ const Introduccion = () => {
         <div className='introduccion-content'>
             <div className='header-box'>
                 <h2 className='header-subtitle'>Análisis y Simulación de Mecanismos </h2>
-                <h1 className='header-title'>Mecanismos de Cuatro Barras</h1>
+                <h1 className='header-title'>Cinemática y dinámica de mecanismos</h1>
             </div>
             <div className='content-info-box'>
                 <div className='content-info'>
