@@ -1,4 +1,4 @@
-const mathJaxConfigData = {
+const config = {
     mathJaxConfig: {
         "fast-preview": {
             disabled: true
@@ -17,4 +17,4 @@ const mathJaxConfigData = {
     }
 }
 
-export default mathJaxConfigData
+export default config

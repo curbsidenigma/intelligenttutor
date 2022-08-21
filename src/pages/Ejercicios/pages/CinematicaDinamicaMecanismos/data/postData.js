@@ -1,4 +1,4 @@
-const sentData = {
+const postData = {
     r: [
         {
             id: 1,
@@ -26,7 +26,27 @@ const sentData = {
             id: 2,
             magnitude: 0
         }
+    ],
+    omega: [
+        {
+            id: 1,
+            magnitude: 0
+        },
+        {
+            id: 2,
+            magnitude: 2
+        }
+    ],
+    alpha: [
+        {
+            id: 1,
+            magnitude: 0
+        },
+        {
+            id: 2,
+            magnitude: 1
+        }
     ]
 }
 
-export default sentData
+export default postData

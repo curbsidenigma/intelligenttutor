@@ -1,4 +1,4 @@
-const methodsData = {
+const methods = {
     fullRangeAtan(x, y) {
         if (x > 0) {
             return Math.atan(y/x)
@@ -26,4 +26,4 @@ const methodsData = {
     }
 }
 
-export default methodsData
+export default methods
