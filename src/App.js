@@ -33,7 +33,7 @@ function App() {
             element={<Ejercicios/>}
           />
             <Route
-              path='/intelligenttutor/ejercicios/cinematica-mecanica-mecanismos/'
+              path='/intelligenttutor/ejercicios/cinematica-dinamica-mecanismos/'
               element={<CinematicaDinamicaMecanismos/>}
             />
           <Route
