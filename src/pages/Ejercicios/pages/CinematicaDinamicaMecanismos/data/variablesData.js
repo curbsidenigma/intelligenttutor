@@ -67,31 +67,83 @@ const variablesData = {
         {
             id: 1, 
             name: 'Ángulo de bancada',
-            mathJax: 'theta_1', 
+            mathJax: '\\theta_1', 
             canvas: '',
             magnitude: 0
         },
         {
             id: 2, 
             name: 'Ángulo de entrada',
-            mathJax: 'theta_2',
+            mathJax: '\\theta_2',
             canvas: 'O_4O_2A',
             magnitude: 0
         },
         {
             id: 3, 
             name: 'Ángulo de transmisión',
-            mathJax: 'theta_3',
+            mathJax: '\\theta_3',
             canvas: '', 
             magnitude: 0
         },
         {
             id: 4, 
             name: 'Ángulo de salida',
-            mathJax: 'theta_4',
+            mathJax: '\\theta_4',
             canvas: '', 
             magnitude: 0
+        }
+    ],
+    omegaData: [
+        {
+            id: 1, 
+            name: '',
+            mathJax: '\\omega_1', 
+            magnitude: 0
         },
+        {
+            id: 2, 
+            name: 'Velocidad angular de entrada',
+            mathJax: '\\omega_2',
+            magnitude: 0
+        },
+        {
+            id: 3, 
+            name: 'Velocidad angular de transmisión',
+            mathJax: '\\omega_3',
+            magnitude: 0
+        },
+        {
+            id: 4, 
+            name: 'Velocidad angular de salida',
+            mathJax: '\\omega_4',
+            magnitude: 0
+        }
+    ],
+    alphaData: [
+        {
+            id: 1, 
+            name: '',
+            mathJax: '\\alpha_1', 
+            magnitude: 0
+        },
+        {
+            id: 2, 
+            name: 'Aceleración angular de entrada',
+            mathJax: '\\alpha_2',
+            magnitude: 0
+        },
+        {
+            id: 3, 
+            name: 'Aceleración angular de transmisión',
+            mathJax: '\\alpha_3',
+            magnitude: 0
+        },
+        {
+            id: 4, 
+            name: 'Aceleración angular de salida',
+            mathJax: '\\alpha_4',
+            magnitude: 0
+        }
     ]
 }
 

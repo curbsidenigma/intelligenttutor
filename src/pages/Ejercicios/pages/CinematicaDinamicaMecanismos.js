@@ -1,7 +1,9 @@
 import { React, useState } from 'react'
 import { Element } from 'react-scroll'
 import '../styles/cinematicaDinamicaMecanismos.css'
+import methodsData from './CinematicaDinamicaMecanismos/data/methodsData'
 import variablesData from './CinematicaDinamicaMecanismos/data/variablesData'
+import sentData from './CinematicaDinamicaMecanismos/data/sentData'
 import Sidebar from './CinematicaDinamicaMecanismos/components/Sidebar'
 import Introduccion from './CinematicaDinamicaMecanismos/components/Introduccion'
 
@@ -10,6 +12,11 @@ const CinematicaDinamicaMecanismos = () => {
     const [eventCounter, setEventCounter] = useState(0)
     const [plot, setPlot] = useState(false)
     const [canvasButton, setCanvasButton] = useState(false)
+
+    const [r, setR] = useState(variablesData.rData)
+    const [theta, setTheta] = useState(variablesData.thetaData)
+    const [omega, setOmega] = useState(variablesData.omegaData)
+    const [alpha, setAlpha] = useState(variablesData.alphaData)
 
     const handleClick = (event) => {
         if (eventCounter < 4) {
@@ -31,11 +38,11 @@ const CinematicaDinamicaMecanismos = () => {
 
     const drawPoints = () => {
         let jsxData = []
-        points.map((point, id) => 
+        points.map((point, i) => 
             jsxData.push(
                 point.flag && (
-                    <g key={id}>
-                        <circle cx={point.x} cy={point.y} r={3} stroke='black' stroke-width='2' fill='white'/>
+                    <g key={i}>
+                        <circle cx={point.x} cy={point.y} r={3} stroke='black' strokeWidth='2' fill='white'/>
                     </g>
                 )
             )
@@ -64,6 +71,52 @@ const CinematicaDinamicaMecanismos = () => {
     }
 
     const plotData = () => {
+        let req = sentData
+        for (let i = 0; i < 4; i++) {
+            let k
+            i > 0 ? (k = i - 1) : (k = 3)
+            req.r[i] = {
+                ...req.r[i],
+                magnitude: parseFloat(
+                    (
+                        Math.sqrt(
+                            (points[i].x - points[k].x) ** 2 + (points[i].y - points[k].y) ** 2
+                        ) / 10
+                    ).toFixed(2)
+                )
+            }
+            i > 0 ? (k = 1) : (k = 3)
+            if (i < 2) {
+                req.theta[i] = {
+                    ...req.r[i],
+                    magnitude: parseFloat(
+                        methodsData.fullRangeAtan(points[k].x - points[0].x, points[0].y - points[k].y).toFixed(2)
+                    )
+                }
+            }
+        }
+
+        const route = '/intelligenttutor/api'
+        const url = 'http://localhost:5000/' + route
+        fetch(url, {
+            method: 'post',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(req)
+        }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    setR(methodsData.fetchData(r, data.r))
+                    setTheta(methodsData.fetchData(theta, data.theta))
+                    setOmega(methodsData.fetchData(omega, data.omega))
+                    setAlpha(methodsData.fetchData(alpha, data.alpha))
+                })
+            } else {
+                console.log('Error 404: API not connected')
+            }
+        }).catch(function (error) {
+            console.log('Error 404: API not connected')
+        })
         setPlot(true)
         setCanvasButton(true)
     }
