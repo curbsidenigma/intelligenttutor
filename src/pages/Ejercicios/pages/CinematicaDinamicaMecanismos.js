@@ -1,10 +1,46 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { Element } from 'react-scroll'
 import '../styles/cinematicaDinamicaMecanismos.css'
+import variablesData from './CinematicaDinamicaMecanismos/data/variablesData'
 import Sidebar from './CinematicaDinamicaMecanismos/components/Sidebar'
 import Introduccion from './CinematicaDinamicaMecanismos/components/Introduccion'
 
 const CinematicaDinamicaMecanismos = () => {
+    const [points, setPoints] = useState(variablesData.points)
+    const [eventCounter, setEventCounter] = useState(0)
+
+    const handleClick = (event) => {
+        if (eventCounter < 4) {
+            const dim = event.target.getBoundingClientRect();
+            setPoints(
+                points.map((object) =>
+                    object.id === eventCounter + 1
+                    ? {
+                      ...object,
+                      flag: true,
+                      x: event.clientX - dim.left,
+                      y: event.clientY - dim.top
+                    } : object
+                )
+            )
+            setEventCounter(eventCounter + 1);
+        }
+    }
+
+    const drawPoints = () => {
+        let dataJax = []
+        points.map((point, id) => 
+            dataJax.push(
+                point.flag && (
+                    <g key={id}>
+                        <circle cx={point.x} cy={point.y} r={3} stroke='black' stroke-width='2' fill='white'/>
+                    </g>
+                )
+            )
+        )
+        return dataJax
+    }
+
     return (
         <div className='cuatro-barras-content'>
             <div className='sidebar-content'>
@@ -30,7 +66,7 @@ const CinematicaDinamicaMecanismos = () => {
                         </div>
                         {/* Begin canvas */}
                         <div className='canvas-box'>
-                            <svg className='canvas drop-shadow-md' width={700} height={400}>
+                            <svg className='canvas drop-shadow-md' width={700} height={400} onClick={handleClick}>
                                 <g>
                                     <rect
                                         width={700}
@@ -41,6 +77,7 @@ const CinematicaDinamicaMecanismos = () => {
                                         stroke={'white'}
                                         strokeWidth={1}
                                     />
+                                    {drawPoints()}
                                 </g>
                             </svg>
                         </div>
