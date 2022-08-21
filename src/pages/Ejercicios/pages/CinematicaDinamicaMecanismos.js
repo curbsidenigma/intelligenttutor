@@ -9,6 +9,7 @@ const CinematicaDinamicaMecanismos = () => {
     const [points, setPoints] = useState(variablesData.pointsData)
     const [eventCounter, setEventCounter] = useState(0)
     const [plot, setPlot] = useState(false)
+    const [canvasButton, setCanvasButton] = useState(false)
 
     const handleClick = (event) => {
         if (eventCounter < 4) {
@@ -64,12 +65,14 @@ const CinematicaDinamicaMecanismos = () => {
 
     const plotData = () => {
         setPlot(true)
+        setCanvasButton(true)
     }
 
     const resetData = () => {
         setPoints(variablesData.pointsData)
-        setEventCounter(0)
         setPlot(false)
+        setCanvasButton(false)
+        setEventCounter(0)
     }
 
     return (
@@ -114,24 +117,28 @@ const CinematicaDinamicaMecanismos = () => {
                             </svg>
                         </div>
                         {/* End canvas */}
-                        <div className='button-box'>
-                            <button 
-                                type='submit' 
-                                className='canvas-button focus:ring-2 focus:ring-offset-2 focus:ring-true-blue'
-                                onClick={plotData}
-                            >
-                                Dibujar
-                            </button>
+                        {(eventCounter === 4) && !canvasButton && (
+                            <div className='button-box'>
+                                <button 
+                                    type='submit' 
+                                    className='canvas-button focus:ring-2 focus:ring-offset-2 focus:ring-true-blue'
+                                    onClick={plotData}
+                                >
+                                    Dibujar
+                                </button>
                         </div>
-                        <div className='button-box'>
-                            <button 
-                                type='submit' 
-                                className='canvas-button focus:ring-2 focus:ring-offset-2 focus:ring-true-blue'
-                                onClick={resetData}
-                            >
-                                Reiniciar
-                            </button>
-                        </div>
+                        )}
+                        {(eventCounter > 0) && (
+                            <div className='button-box'>
+                                <button 
+                                    type='submit' 
+                                    className='canvas-button focus:ring-2 focus:ring-offset-2 focus:ring-true-blue'
+                                    onClick={resetData}
+                                >
+                                    Reiniciar
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </Element>
                 <Element name='paso-dos' className='element'>
