@@ -1,5 +1,5 @@
 const variablesData = {
-    points: [
+    pointsData: [
         {
             id: 1,
             name: 'O_2',
@@ -33,7 +33,7 @@ const variablesData = {
             y: 0
         }
     ],
-    r: [
+    rData: [
         {
             id: 1, 
             name: 'Bancada', 
@@ -63,7 +63,7 @@ const variablesData = {
             magnitude: 0
         }
     ],
-    theta: [
+    thetaData: [
         {
             id: 1, 
             name: 'Ángulo de bancada',

@@ -6,7 +6,7 @@ import Sidebar from './CinematicaDinamicaMecanismos/components/Sidebar'
 import Introduccion from './CinematicaDinamicaMecanismos/components/Introduccion'
 
 const CinematicaDinamicaMecanismos = () => {
-    const [points, setPoints] = useState(variablesData.points)
+    const [points, setPoints] = useState(variablesData.pointsData)
     const [eventCounter, setEventCounter] = useState(0)
 
     const handleClick = (event) => {
@@ -39,6 +39,11 @@ const CinematicaDinamicaMecanismos = () => {
             )
         )
         return dataJax
+    }
+
+    const resetData = () => {
+        setPoints(variablesData.pointsData)
+        setEventCounter(0)
     }
 
     return (
@@ -82,6 +87,15 @@ const CinematicaDinamicaMecanismos = () => {
                             </svg>
                         </div>
                         {/* End canvas */}
+                        <div className='button-box'>
+                            <button 
+                                type='submit' 
+                                className='canvas-button focus:ring-2 focus:ring-offset-2 focus:ring-true-blue'
+                                onClick={resetData}
+                            >
+                                Reiniciar
+                            </button>
+                        </div>
                     </div>
                 </Element>
                 <Element name='paso-dos' className='element'>
