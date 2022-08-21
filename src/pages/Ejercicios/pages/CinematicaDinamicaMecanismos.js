@@ -8,6 +8,7 @@ import Introduccion from './CinematicaDinamicaMecanismos/components/Introduccion
 const CinematicaDinamicaMecanismos = () => {
     const [points, setPoints] = useState(variablesData.pointsData)
     const [eventCounter, setEventCounter] = useState(0)
+    const [plot, setPlot] = useState(false)
 
     const handleClick = (event) => {
         if (eventCounter < 4) {
@@ -28,9 +29,9 @@ const CinematicaDinamicaMecanismos = () => {
     }
 
     const drawPoints = () => {
-        let dataJax = []
+        let jsxData = []
         points.map((point, id) => 
-            dataJax.push(
+            jsxData.push(
                 point.flag && (
                     <g key={id}>
                         <circle cx={point.x} cy={point.y} r={3} stroke='black' stroke-width='2' fill='white'/>
@@ -38,12 +39,37 @@ const CinematicaDinamicaMecanismos = () => {
                 )
             )
         )
-        return dataJax
+        return jsxData
+    }
+
+    const drawLines = () => {
+        let jsxData = []
+        for (let i = 0; i < 4; i++) {
+            let k
+            (i > 0) ? k = i - 1 : k = 3
+            jsxData.push(
+                <line
+                    key={i}
+                    x1={points[i].x}
+                    y1={points[i].y}
+                    x2={points[k].x}
+                    y2={points[k].y}
+                    stroke="black"
+                    strokeWidth={2}
+                />
+            )
+        }
+        return jsxData
+    }
+
+    const plotData = () => {
+        setPlot(true)
     }
 
     const resetData = () => {
         setPoints(variablesData.pointsData)
         setEventCounter(0)
+        setPlot(false)
     }
 
     return (
@@ -82,11 +108,21 @@ const CinematicaDinamicaMecanismos = () => {
                                         stroke={'white'}
                                         strokeWidth={1}
                                     />
+                                    {plot && drawLines()}
                                     {drawPoints()}
                                 </g>
                             </svg>
                         </div>
                         {/* End canvas */}
+                        <div className='button-box'>
+                            <button 
+                                type='submit' 
+                                className='canvas-button focus:ring-2 focus:ring-offset-2 focus:ring-true-blue'
+                                onClick={plotData}
+                            >
+                                Dibujar
+                            </button>
+                        </div>
                         <div className='button-box'>
                             <button 
                                 type='submit' 
