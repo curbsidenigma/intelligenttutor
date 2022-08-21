@@ -1,9 +1,11 @@
 import { React, useState } from 'react'
 import { Element } from 'react-scroll'
+import { MathJax, MathJaxContext } from 'better-react-mathjax'
 import '../styles/cinematicaDinamicaMecanismos.css'
-import methodsData from './CinematicaDinamicaMecanismos/data/methodsData'
+import methods from './CinematicaDinamicaMecanismos/data/methods'
+import config from './CinematicaDinamicaMecanismos/data/config'
 import variablesData from './CinematicaDinamicaMecanismos/data/variablesData'
-import sentData from './CinematicaDinamicaMecanismos/data/sentData'
+import postData from './CinematicaDinamicaMecanismos/data/postData'
 import Sidebar from './CinematicaDinamicaMecanismos/components/Sidebar'
 import Introduccion from './CinematicaDinamicaMecanismos/components/Introduccion'
 
@@ -70,46 +72,48 @@ const CinematicaDinamicaMecanismos = () => {
         return jsxData
     }
 
-    const plotData = () => {
-        let req = sentData
+    const sendData = () => {
+        let post = postData
         for (let i = 0; i < 4; i++) {
             let k
             i > 0 ? (k = i - 1) : (k = 3)
-            req.r[i] = {
-                ...req.r[i],
+            post.r[i] = {
+                ...post.r[i],
                 magnitude: parseFloat(
                     (
                         Math.sqrt(
                             (points[i].x - points[k].x) ** 2 + (points[i].y - points[k].y) ** 2
-                        ) / 10
+                        ) / 100
                     ).toFixed(2)
                 )
             }
             i > 0 ? (k = 1) : (k = 3)
             if (i < 2) {
-                req.theta[i] = {
-                    ...req.r[i],
+                post.theta[i] = {
+                    ...post.r[i],
                     magnitude: parseFloat(
-                        methodsData.fullRangeAtan(points[k].x - points[0].x, points[0].y - points[k].y).toFixed(2)
+                        methods.fullRangeAtan(points[k].x - points[0].x, points[0].y - points[k].y).toFixed(2)
                     )
                 }
             }
         }
 
-        const route = '/intelligenttutor/api'
-        const url = 'http://localhost:5000/' + route
+        const route = 'intelligenttutor/api'
+        const url = 'https://intelligenttutor-api.herokuapp.com/' + route
+        // const url = 'http://127.0.0.1:5000/' + route
         fetch(url, {
             method: 'post',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(req)
+            body: JSON.stringify(post)
         }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    setR(methodsData.fetchData(r, data.r))
-                    setTheta(methodsData.fetchData(theta, data.theta))
-                    setOmega(methodsData.fetchData(omega, data.omega))
-                    setAlpha(methodsData.fetchData(alpha, data.alpha))
+                    console.log(data)
+                    setR(methods.fetchData(r, data.r))
+                    setTheta(methods.fetchData(theta, data.theta))
+                    setOmega(methods.fetchData(omega, data.omega))
+                    setAlpha(methods.fetchData(alpha, data.alpha))
                 })
             } else {
                 console.log('Error 404: API not connected')
@@ -126,6 +130,10 @@ const CinematicaDinamicaMecanismos = () => {
         setPlot(false)
         setCanvasButton(false)
         setEventCounter(0)
+        setR(variablesData.rData)
+        setTheta(variablesData.thetaData)
+        setOmega(variablesData.omegaData)
+        setAlpha(variablesData.alphaData)
     }
 
     return (
@@ -146,7 +154,7 @@ const CinematicaDinamicaMecanismos = () => {
                 <Element name='paso-uno' className='element'>
                     <div className='section-content'>
                         <div className='subtitle-box'>
-                            <h2 className='subtitle'>Paso Uno: Dibujar y parafrasear el problema</h2>
+                            <h2 className='subtitle'>Paso Uno: Dibujar y Parafrasear el Problema</h2>
                         </div>
                         <div className='paragraph-box'>
                             <p>Para comenzar, dibujaremos el diagrama de cuerpo libre. Haz clic en cualquier lugar del lienzo para dibujar los puntos que corresponden a las juntas del mecanismo. Una vez terminado el boceto haz clic en el botón Dibujar para unir los puntos y crear los eslabones. Puedes realizar el dibujo cuantas veces quieras, únicamente tienes que seleccionar el botón Reiniciar (ten en cuenta que esto hará que el ejercicio completo vuelva a comenzar).</p>
@@ -175,7 +183,7 @@ const CinematicaDinamicaMecanismos = () => {
                                 <button 
                                     type='submit' 
                                     className='canvas-button focus:ring-2 focus:ring-offset-2 focus:ring-true-blue'
-                                    onClick={plotData}
+                                    onClick={sendData}
                                 >
                                     Dibujar
                                 </button>
@@ -211,6 +219,78 @@ const CinematicaDinamicaMecanismos = () => {
                         </div>
                         <div className='paragraph-box'>
                             <p>Una vez realizado el dibujo y revisado la teoría, es importante identificar las variables correspondientes al boceto dibujado en el primer paso. Estas son la longitud de cada uno de los eslabones y el ángulo de entrada que se mide con respecto a la tierra, o mejor conocida como bancada. Todos estos datos se muestran en la siguiente tabla.</p>
+                        </div>
+                        <div className='table-box'>
+                            <div className='table-container shadow-md'>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope='col'>
+                                                Nombre de la variable
+                                            </th>
+                                            <th scope='col'>
+                                                Representación
+                                            </th>
+                                            <th scope='col'>
+                                                Símbolo
+                                            </th>
+                                            <th scope='col'>
+                                                Valor
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <MathJaxContext
+                                            version={2}
+                                            config={config.mathJaxConfig}
+                                            onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
+                                        >
+                                            {r.map((data, i) => (
+                                                <tr key={i} className='border-b'>
+                                                    <td>
+                                                        {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
+                                                    </td>
+                                                    <td>
+                                                        <MathJax inline dynamic>
+                                                            {`$\\overline{${data.canvas}}$`}
+                                                        </MathJax>
+                                                    </td>
+                                                    <td>
+                                                        <MathJax inline dynamic>
+                                                            {`$${data.mathJax}$`}
+                                                        </MathJax>
+                                                    </td>
+                                                    <td>
+                                                        <MathJax inline dynamic>
+                                                            {`$${data.magnitude}\\;\\mathrm{m}$`}
+                                                        </MathJax>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                            <tr className='border-b'>
+                                                <td>
+                                                    {theta[1].name.charAt(0).toUpperCase() + theta[1].name.slice(1)}
+                                                </td>
+                                                <td>
+                                                    <MathJax inline dynamic>
+                                                        {`$\\widehat{${theta[1].canvas}}$`}
+                                                    </MathJax>
+                                                </td>
+                                                <td>
+                                                    <MathJax inline dynamic>
+                                                        {`$${theta[1].mathJax}$`}
+                                                    </MathJax>
+                                                </td>
+                                                <td>
+                                                    <MathJax inline dynamic>
+                                                        {`$${methods.rad2deg(parseFloat(theta[1].magnitude)).toFixed(2)}°$`}
+                                                    </MathJax>
+                                                </td>
+                                            </tr>
+                                        </MathJaxContext>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </Element>
