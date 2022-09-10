@@ -1,6 +1,7 @@
 import { React, useState } from 'react'
 import { Element } from 'react-scroll'
 import { MathJax, MathJaxContext } from 'better-react-mathjax'
+import { arc } from 'd3'
 import '../styles/cinematicaDinamicaMecanismos.css'
 import methods from './CinematicaDinamicaMecanismos/data/methods'
 import config from './CinematicaDinamicaMecanismos/data/config'
@@ -10,6 +11,7 @@ import Sidebar from './CinematicaDinamicaMecanismos/components/Sidebar'
 import Introduccion from './CinematicaDinamicaMecanismos/components/Introduccion'
 
 const CinematicaDinamicaMecanismos = () => {
+    const post = postData
     const [points, setPoints] = useState(variablesData.pointsData)
     const [eventCounter, setEventCounter] = useState(0)
     const [plot, setPlot] = useState(false)
@@ -44,7 +46,30 @@ const CinematicaDinamicaMecanismos = () => {
             jsxData.push(
                 point.flag && (
                     <g key={i}>
-                        <circle cx={point.x} cy={point.y} r={3} stroke='black' strokeWidth='2' fill='white'/>
+                        {point.img ? (
+                            <foreignObject
+                                x={point.x - 12}
+                                y={point.y - 9}
+                                width="25"
+                                height="25"
+                            >
+                                <img src={require('./CinematicaDinamicaMecanismos/svg/fixed-rotary-joint.svg').default} alt='Fixed Rotary Joint'/>
+                            </foreignObject>
+                        ) : (<circle cx={point.x} cy={point.y} r={3} stroke='black' strokeWidth='2' fill='white'/>)}
+                        <foreignObject
+                            x={point.x - 10}
+                            y={point.y + (i === 0 || i === 3 ? 15 : -35)}
+                            width='100'
+                            height='100'
+                        >
+                            <MathJaxContext
+                                version={2}
+                                config={config.mathJaxConfig}
+                                onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
+                            >
+                                <MathJax dynamic>{`$${point.name}$`}</MathJax>
+                            </MathJaxContext>
+                        </foreignObject>
                     </g>
                 )
             )
@@ -66,14 +91,41 @@ const CinematicaDinamicaMecanismos = () => {
                     y2={points[k].y}
                     stroke="black"
                     strokeWidth={2}
+                    marker-end='url(#arrow)'
                 />
             )
         }
         return jsxData
     }
 
+    const drawArc = () => {
+        const Arc = arc()
+            .innerRadius(25)
+            .outerRadius(27)
+            .startAngle(Math.PI / 2 - post.theta[1].magnitude)
+            .endAngle(Math.PI / 2 - post.theta[0].magnitude)
+        return (
+            <g transform={`translate(${points[0].x}, ${points[0].y})`}>
+                <path d={Arc()} />
+                <foreignObject
+                    x={Math.abs(100 * Math.cos(post.theta[1].magnitude))}
+                    y={-50 * Math.sin(post.theta[1].magnitude)}
+                    width="100"
+                    height="100"
+                >
+                    <MathJaxContext
+                        version={2}
+                        config={config.mathJaxConfig}
+                        onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
+                    >
+                        <MathJax dynamic>{`$\\theta_2$`}</MathJax>
+                    </MathJaxContext>
+                </foreignObject>
+            </g>
+        ) 
+    }
+
     const sendData = () => {
-        let post = postData
         for (let i = 0; i < 4; i++) {
             let k
             i > 0 ? (k = i - 1) : (k = 3)
@@ -109,7 +161,6 @@ const CinematicaDinamicaMecanismos = () => {
         }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data)
                     setR(methods.fetchData(r, data.r))
                     setTheta(methods.fetchData(theta, data.theta))
                     setOmega(methods.fetchData(omega, data.omega))
@@ -173,6 +224,7 @@ const CinematicaDinamicaMecanismos = () => {
                                         strokeWidth={1}
                                     />
                                     {plot && drawLines()}
+                                    {plot && drawArc()}
                                     {drawPoints()}
                                 </g>
                             </svg>
@@ -208,8 +260,26 @@ const CinematicaDinamicaMecanismos = () => {
                             <h2 className='subtitle'>Paso Dos: Identificar Teoría, Conceptos y Fórmulas</h2>
                         </div>
                         <div className='paragraph-box'>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a tincidunt est, nec sollicitudin dui. Pellentesque auctor tellus eu ipsum tempus efficitur. Cras varius augue sit amet ipsum dapibus dictum. Vestibulum dapibus sit amet arcu sit amet fermentum. Maecenas consectetur risus sit amet velit congue, vel blandit dui ornare.</p>
+                            <p>El <span id='concept'>eslabonamiento de cuatro barras</span> es el mecanismo articulado más simple posible para movimiento controlado con grado de libertad simple. <em>La sencillez es la marca de un buen diseño</em>. La menor cantidad de partes que puede realizar el trabajo en general será la solución menos cara y más confiable. Por lo tanto, el eslabonamiento de cuatro barras deberá estar entre las primeras soluciones a problemas de control de movimiento a ser investigados.</p>
                         </div>
+                        <div className='subsubtitle-box'>
+                            <h3 className='subsubtitle'>La condición de Grashof</h3>
+                        </div>
+                        <MathJaxContext
+                                version={2}
+                                config={config.mathJaxConfig}
+                                onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
+                        >
+                            <div className='paragraph-box'>
+                                <p>La <span id='concept'>condición de Grashof</span> es una relación muy simple que predice el comportamiento de rotación o rotabilidad de las inversiones de un eslabonamiento de cuatro barras basado sólo en las longitudes de los eslabones. Esta se define como</p>
+                            </div>
+                            <div className='equation-box'>
+                                <p><MathJax inline>{`$S + L \\leq P + Q$`}</MathJax>,</p>
+                            </div>
+                            <div className='paragraph-box'>
+                                <p>siendo&nbsp;<MathJax inline>{`$S$`}</MathJax>&nbsp;la longitud del eslabón más corto,&nbsp;<MathJax inline>{`$L$`}</MathJax>&nbsp;la longitud del eslabón más largo y&nbsp;<MathJax inline>{`$P$`}</MathJax>&nbsp;y&nbsp;<MathJax inline>{`$Q$`}</MathJax>&nbsp;las longitudes de los eslabones restantes.</p>
+                            </div>
+                        </MathJaxContext>
                     </div>
                 </Element>
                 <Element name='paso-tres' className='element'>

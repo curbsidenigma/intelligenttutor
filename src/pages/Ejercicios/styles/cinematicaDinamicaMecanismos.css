@@ -47,7 +47,8 @@
 
 p {
     text-align: justify;
-    font-size: large;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
 }
 
 .section-content {
@@ -58,21 +59,48 @@ p {
 .section-content .subtitle-box {
     text-align: center;
     padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .section-content .subtitle-box h2.subtitle {
     margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     font-size: 1.75rem;
     line-height: 2rem;
-    font-weight: 700;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--gray-900);
+}
+
+.section-content .subsubtitle-box {
+    text-align: left;
+    padding-top: 0.25rem;
+}
+
+.section-content .subsubtitle-box h3.subsubtitle{
+    margin-top: 0.75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 500;
     letter-spacing: -0.025em;
     color: var(--gray-900);
 }
 
 .section-content .paragraph-box {
     display: flex;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    justify-content: center;
+}
+
+.paragraph-box #concept {
+    font-weight: 600;
+}
+
+.equation-box {
+    display: flex;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     justify-content: center;
 }
 

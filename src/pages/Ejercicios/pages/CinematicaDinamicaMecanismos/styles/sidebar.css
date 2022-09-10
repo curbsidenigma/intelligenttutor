@@ -26,3 +26,8 @@ aside.sidebar-content {
     color: white;
     cursor: pointer;
 }
+
+.active-sidebar-item {
+    background-color: var(--tec-blue);
+    color: white;
+}

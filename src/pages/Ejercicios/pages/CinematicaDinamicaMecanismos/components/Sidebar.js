@@ -12,7 +12,7 @@ const Sidebar = () => {
                         <li key={sidebarItem.id}>
                             <Link
                                 className='sidebar-item'
-                                activeClass='active'
+                                activeClass='active-sidebar-item'
                                 to={sidebarItem.path}
                                 spy={true}
                                 smooth={true}
