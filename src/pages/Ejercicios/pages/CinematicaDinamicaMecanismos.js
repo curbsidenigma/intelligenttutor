@@ -91,7 +91,6 @@ const CinematicaDinamicaMecanismos = () => {
                     y2={points[k].y}
                     stroke="black"
                     strokeWidth={2}
-                    marker-end='url(#arrow)'
                 />
             )
         }
@@ -108,8 +107,8 @@ const CinematicaDinamicaMecanismos = () => {
             <g transform={`translate(${points[0].x}, ${points[0].y})`}>
                 <path d={Arc()} />
                 <foreignObject
-                    x={Math.abs(100 * Math.cos(post.theta[1].magnitude))}
-                    y={-50 * Math.sin(post.theta[1].magnitude)}
+                    x={Math.abs(50 * Math.cos(Math.PI / 4))}
+                    y={-Math.abs(50 * Math.sin(Math.PI / 4))}
                     width="100"
                     height="100"
                 >
@@ -123,6 +122,101 @@ const CinematicaDinamicaMecanismos = () => {
                 </foreignObject>
             </g>
         ) 
+    }
+
+    const drawArrows = () => {
+        let jsxData = []
+        for (let i = 0; i < 4; i++) {
+            let j, k
+            switch (i) {
+                case 0:
+                    j = 0
+                    k = 1
+                    break
+
+                case 1:
+                    j = 1
+                    k = 2
+                    break
+                
+                case 2:
+                    j = 3
+                    k = 2
+                    break
+
+                case 3:
+                    j = 0
+                    k = 3
+                    break
+
+                default:
+                    break
+            }
+            jsxData.push(
+                <g key={i}>
+                    <defs>
+                        <marker
+                            id="arrow"
+                            viewBox="0 -5 10 10"
+                            refX="5"
+                            refY="0"
+                            markerWidth="4"
+                            markerHeight="4"
+                            orient="auto"
+                        >
+                            <path d="M0,-5L10,0L0,5"></path>
+                        </marker>
+                    </defs>
+                    <line
+                        x1={points[j].x}
+                        y1={points[j].y}
+                        x2={points[k].x}
+                        y2={points[k].y}
+                        stroke="black"
+                        strokeWidth={2}
+                        marker-end="url(#arrow)"
+                    />
+                </g>
+            )
+        }
+        return jsxData
+    }
+
+    const drawAxis = () => {
+        let jsxData = []
+        for (let i = 0; i < 4; i++) {
+            jsxData.push(
+                <g key={i}>
+                    <g transform={`translate(${points[0].x}, ${points[0].y})`}>
+                        <line
+                            x1={0}
+                            y1={0}
+                            x2={((i < 2) ? 1 : -1) * 1000}
+                            y2={((i < 2) ? -1 : 1) * ((i < 1) ? ((points[0].y - points[3].y) / (points[3].x - points[0].x)) : Math.tan(post.theta[0].magnitude + Math.PI / 2 * i)) * 1000}
+                            stroke="black"
+                            strokeWidth={1}
+                        />
+                    </g>
+                    {(i < 2) && (
+                        <foreignObject
+                            x={(i < 1) ? 675 : points[0].x + Math.tan(post.theta[0].magnitude + Math.PI / 2)}
+                            y={(i < 1) ? points[0].y - Math.tan(post.theta[0].magnitude) * 400 : 5}
+                            width='100'
+                            height='100'
+                        >
+                            <MathJaxContext
+                                version={2}
+                                config={config.mathJaxConfig}
+                                onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
+                            >
+                                <MathJax dynamic>{`$${(i < 1) ? 'x' : 'y'}$`}</MathJax>
+                            </MathJaxContext>
+                        </foreignObject>
+                    )}
+                </g>
+            )
+        }
+        return jsxData
     }
 
     const sendData = () => {
@@ -142,7 +236,7 @@ const CinematicaDinamicaMecanismos = () => {
             i > 0 ? (k = 1) : (k = 3)
             if (i < 2) {
                 post.theta[i] = {
-                    ...post.r[i],
+                    ...post.theta[i],
                     magnitude: parseFloat(
                         methods.fullRangeAtan(points[k].x - points[0].x, points[0].y - points[k].y).toFixed(2)
                     )
@@ -224,7 +318,6 @@ const CinematicaDinamicaMecanismos = () => {
                                         strokeWidth={1}
                                     />
                                     {plot && drawLines()}
-                                    {plot && drawArc()}
                                     {drawPoints()}
                                 </g>
                             </svg>
@@ -263,7 +356,7 @@ const CinematicaDinamicaMecanismos = () => {
                             <p>El <span id='concept'>eslabonamiento de cuatro barras</span> es el mecanismo articulado más simple posible para movimiento controlado con grado de libertad simple. <em>La sencillez es la marca de un buen diseño</em>. La menor cantidad de partes que puede realizar el trabajo en general será la solución menos cara y más confiable. Por lo tanto, el eslabonamiento de cuatro barras deberá estar entre las primeras soluciones a problemas de control de movimiento a ser investigados.</p>
                         </div>
                         <div className='subsubtitle-box'>
-                            <h3 className='subsubtitle'>La condición de Grashof</h3>
+                            <h3 className='subsubtitle'>Análisis de posición</h3>
                         </div>
                         <MathJaxContext
                                 version={2}
@@ -271,13 +364,46 @@ const CinematicaDinamicaMecanismos = () => {
                                 onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
                         >
                             <div className='paragraph-box'>
-                                <p>La <span id='concept'>condición de Grashof</span> es una relación muy simple que predice el comportamiento de rotación o rotabilidad de las inversiones de un eslabonamiento de cuatro barras basado sólo en las longitudes de los eslabones. Esta se define como</p>
+                                <p>Para los mecanismos de cuatro barras se requiere sólo un parámetro para definir por completo las posiciones de todos los eslabones. El parámetro usualmente elegido es el ángulo de eslabón de entrada y se representa como&nbsp;<MathJax inline>{`$\\theta_2$`}</MathJax>. Se quieren hallar&nbsp;<MathJax inline>{`$\\theta_3$`}</MathJax>&nbsp;y&nbsp;<MathJax inline>{`$\\theta_4$`}</MathJax>, y se conocen las longitudes de los eslabones. Para ello, los eslabones se representan como vectores de posición:</p>
                             </div>
-                            <div className='equation-box'>
-                                <p><MathJax inline>{`$S + L \\leq P + Q$`}</MathJax>,</p>
+                            <div className='canvas-box'>
+                                <svg className='canvas drop-shadow-md' width={700} height={400}>
+                                    <g>
+                                        <rect
+                                            width={700}
+                                            height={400}
+                                            rx={10}
+                                            ry={10}
+                                            fill={'white'}
+                                            stroke={'white'}
+                                            strokeWidth={1}
+                                        />
+                                    </g>
+                                    {plot && drawArrows()}
+                                    {plot && drawArc()}
+                                    {plot && drawAxis()}
+                                </svg>
                             </div>
                             <div className='paragraph-box'>
-                                <p>siendo&nbsp;<MathJax inline>{`$S$`}</MathJax>&nbsp;la longitud del eslabón más corto,&nbsp;<MathJax inline>{`$L$`}</MathJax>&nbsp;la longitud del eslabón más largo y&nbsp;<MathJax inline>{`$P$`}</MathJax>&nbsp;y&nbsp;<MathJax inline>{`$Q$`}</MathJax>&nbsp;las longitudes de los eslabones restantes.</p>
+                                <p>Estas elecciones de las direcciones y sentidos de los vectores, indicados por sus puntas de flecha, conducen a esta ecuación de lazo vectorial</p>
+                            </div>
+                            <div className='equation-box'>
+                                <p><MathJax inline>{`$\\mathbf{\\vec{R_2}} + \\mathbf{\\vec{R_3}} - \\mathbf{\\vec{R_1}} - \\mathbf{\\vec{R_4}} = 0$`}</MathJax>.</p>
+                            </div>
+                            <div className='paragraph-box'>
+                                <p>A continuación, se sustituye la notación de número complejo para cada vector de posición. Y la ecuación se transforma en</p>
+                            </div>
+                            <div className='equation-box'>
+                                <p><MathJax inline>{`$r_2e^{j\\theta_2} + r_3e^{j\\theta_3} - r_1e^{j\\theta_1} - r_4e^{j\\theta_4} = 0$`}</MathJax>.</p>
+                            </div>
+                            <div className='paragraph-box'>
+                                <p>Para resolver la forma polar de la ecuación vectorial, se deben sustituir las equivalentes de Euler para los términos&nbsp;<MathJax inline>{`$e^{j\\theta}$`}</MathJax> de la siguiente forma:</p>
+                            </div>
+                            <div className='equation-box'>
+                                <p className='overflow-equation'><MathJax inline>{`$r_2\\left(\\mathrm{cos}\\theta_2 + j\\;\\mathrm{sen}\\theta_2\\right) + r_3\\left(\\mathrm{cos}\\theta_3 + j\\;\\mathrm{sen}\\theta_3\\right) - r_1\\left(\\mathrm{cos}\\theta_1 + j\\;\\mathrm{sen}\\theta_1\\right) - r_4\\left(\\mathrm{cos}\\theta_4 + j\\;\\mathrm{sen}\\theta_4\\right) = 0$`}</MathJax>.</p>
+                            </div>
+                            <div className='paragraph-box'>
+                                <p>Esta ecuación ahora puede dividirse en sus partes real e imaginaria y cada una se iguala a cero.</p>
                             </div>
                         </MathJaxContext>
                     </div>
