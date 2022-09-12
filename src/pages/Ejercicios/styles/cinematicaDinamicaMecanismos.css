@@ -104,6 +104,10 @@ p {
     justify-content: center;
 }
 
+.overflow-equation {
+    font-size: 1rem;
+}
+
 .canvas-box {
     display: flex;
     padding-top: 0.75rem;
