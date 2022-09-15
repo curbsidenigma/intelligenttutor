@@ -3,39 +3,54 @@ header {
 }
 
 .header-box {
-    max-width: 80rem;
-    margin: auto auto 2rem auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    max-width: 83.6%;
+    margin: auto;
 }
 
 .header-box .header-items {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
     border-bottom-width: 2px;
     border-color: var(--gray-100);
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+}
+
+.header-items nav.nav-box {
+    display: flex;
+    justify-content: flex-start;
+    flex: 1 1 0%;
+}
+
+nav.nav-box .header-breadcrumb {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: var(--gray-500);
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+nav.nav-box .header-breadcrumb:hover {
+    color: var(--gray-900);
 }
 
 .header-items .logo-box {
     display: flex;
-    justify-content: flex-start;
-    width: 0;
+    justify-content: center;
     flex: 1 1 0%;
 }
 
 .logo-box .logo {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
     text-align: justify;
 }
 
 .logo img {
     margin-right: 0.75rem;
-    height: 2.5rem;
+    height: 3rem;
     width: auto;
 }
 
@@ -49,35 +64,18 @@ header {
 
 .logo-text .logo-subtitle-text p {
     font-size: 0.75rem;
+    margin-bottom: -0.5rem;
 }
 
 .logo-text .logo-title-text p {
     font-size: 1rem;
-    letter-spacing: -0.025em;
-}
-
-.header-items nav.nav-box {
-    display: flex;
-}
-
-nav.nav-box .header-breadcrumb {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    font-weight: 500;
-    color: var(--gray-500);
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-}
-
-nav.nav-box .header-breadcrumb:hover {
-    color: var(--gray-900);
+    letter-spacing: -0.025rem;
 }
 
 .header-items .login-nav-box {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 0;
     flex: 1 1 0%;
 }
 
@@ -158,4 +156,4 @@ footer .license-block {
     line-height: 1.25rem;
     color: var(--gray-500);
     text-align: center;
-}
+} 
