@@ -112,18 +112,16 @@ nav.nav-box .header-breadcrumb:hover {
 
 footer {
     position: relative;
-    max-width: 80rem;
-    margin: 3rem auto auto auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 
 footer .footer-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
+    max-width: 83.6%;
+    margin: auto;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
     border-bottom-width: 2px;
     border-color: var(--gray-100);
 }
@@ -132,14 +130,13 @@ footer .footer-box {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 0.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     color: var(--gray-500);
 }
 
 .footer-items .footer-breadcrumb {
-    margin-right: 1rem;
+    margin-right: 1.5rem;
 }
 
 .footer-items .footer-breadcrumb:hover {
@@ -152,6 +149,7 @@ footer .license-block {
 
 .license-block .license {
     display: block;
+    margin-top: 1.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     color: var(--gray-500);
