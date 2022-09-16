@@ -12,10 +12,10 @@ header {
     justify-content: center;
     flex: 1 1 0%;
     margin-top: 1.25rem;
-    margin-bottom: -4rem;
+    margin-bottom: -4.125rem;
 }
 
-.header-box .header-items {
+.header-box .navbar-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,7 +93,7 @@ nav .login-nav-box {
         margin-bottom: 0;
     }
 
-    .header-box .header-items {
+    .header-box .navbar-box {
         justify-content: center;
     }
 
