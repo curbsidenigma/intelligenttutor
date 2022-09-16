@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './components.css'
+import Logo from './Logo'
 
 const Header = () => {
     return (
@@ -18,19 +19,7 @@ const Header = () => {
                             Información
                         </Link>
                     </nav>
-                    <div className='logo-box'>
-                        <Link to='/intelligenttutor/' className='logo'>
-                            <img src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
-                            <div className='logo-text'>
-                                <div className='logo-subtitle-text'>
-                                    <p>NOVUS</p>
-                                </div>
-                                <div className='logo-title-text'>
-                                    <p>Asesor Inteligente</p>
-                                </div>
-                            </div>
-                        </Link>
-                    </div>
+                    <Logo />
                     <div className='login-nav-box'>
                         <Link to='/intelligenttutor/ingresar/' className='login'>
                             Ingresar
