@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/components.css'
 import Logo from './Logo'
 
 const Footer = () => {
     return (
         <footer>
             <div className='footer-box'>
-                <Logo />
+                <div className='logo-footer-box'>
+                    <Logo />
+                </div>
                 <ul className='footer-items'>
                     <li>
                         <Link to='/intelligenttutor/404/' className='footer-breadcrumb'>Acerca de</Link>
