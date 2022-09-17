@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { Element } from 'react-scroll'
 import { MathJax, MathJaxContext } from 'better-react-mathjax'
 import { arc } from 'd3'
+import styled from 'styled-components'
 import './styles/cinematicaDinamicaMecanismos.css'
 import methods from './data/methods'
 import config from './data/config'
@@ -12,7 +12,7 @@ import Sidebar from './components/Sidebar'
 import Introduccion from './components/Introduccion'
 
 const DynamicSidebar = styled.div`
-    width: ${(props) => (props.open ? "280px" : "0px")};
+    width: ${(props) => (props.activate ? "280px" : "0px")};
     padding: 2rem 1.5rem;
     position: fixed;
     display: flex;
@@ -20,7 +20,6 @@ const DynamicSidebar = styled.div`
     top: 0;
     transition: width 0.1s;
 `
-
 const CinematicaDinamicaMecanismos = () => {
     const post = postData
     const [points, setPoints] = useState(variablesData.pointsData)
@@ -515,7 +514,7 @@ const CinematicaDinamicaMecanismos = () => {
                     </div>
                 </Element>
             </div>
-            <DynamicSidebar open={animateSidebar}>
+            <DynamicSidebar activate={animateSidebar}>
                 <Sidebar/>
             </DynamicSidebar>
             {/* <div className='right-space'></div> */}

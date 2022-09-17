@@ -6,8 +6,8 @@ section.section {
 
 .section-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 97%;
+    display: flex;
+    max-width: 860px;
     margin: 0 auto;
     padding: 2rem 0;
     text-align: center;
@@ -57,15 +57,15 @@ h2.exercises-header-subtitle {
 }
 
 .topic-card img {
-    width: 230px;
-    height: 150px;
+    width: 245px;
+    max-height: 160px;
     border-radius: 0.5rem;
 }
 
 h3.topic-title {
     margin-top: 0.75rem;
-    font-size: 0.825rem;
-    line-height: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
     color: var(--gray-500);
 }
 
@@ -74,7 +74,7 @@ h3.topic-title {
 }
 
 h4.exercise-title {
-    font-size: 0.825rem;
+    font-size: 1rem;
     line-height: 1.5rem;
     font-weight: 600;
     color: var(--gray-900);

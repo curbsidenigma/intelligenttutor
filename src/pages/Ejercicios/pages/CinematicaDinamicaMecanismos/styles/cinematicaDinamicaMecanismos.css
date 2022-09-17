@@ -21,12 +21,6 @@ main {
     
 }
 
-p {
-    text-align: justify;
-    font-size: 1.125rem; /* 18px */
-    line-height: 1.75rem; /* 28px */
-}
-
 .section-content {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
