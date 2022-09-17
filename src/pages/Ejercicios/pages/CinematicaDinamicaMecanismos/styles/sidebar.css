@@ -1,11 +1,10 @@
-aside.sidebar-content {
+aside {
     position: sticky;
     top: 0;
 }
 
 .sidebar-box {
     overflow-y: auto;
-    padding: 1rem 0.75rem;
     background-color: white;
     border-radius: 0.25rem;
 }
@@ -30,4 +29,10 @@ aside.sidebar-content {
 .active-sidebar-item {
     background-color: var(--tec-blue);
     color: white;
+}
+
+@media only screen and (max-width: 1440px) {
+    aside {
+        display: none;
+    }
 }

@@ -1,0 +1,86 @@
+section.section {
+    background-color: white;
+    width: 100%;
+    display: block;
+}
+
+.section-wrapper {
+    position: relative;
+    display: flex;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.exercises-title-box {
+    text-align: center;
+}
+
+h1.exercises-header-title {
+    margin-top: 0.5rem;
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #111827;
+}
+
+h2.exercises-header-subtitle {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--tec-blue);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+.topic-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.topic-card {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    text-align: left;
+}
+
+.topic-card:hover {
+    background-color: var(--tec-blue);
+}
+
+.topic-card img {
+    width: 245px;
+    max-height: 160px;
+    border-radius: 0.5rem;
+}
+
+h3.topic-title {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--gray-500);
+}
+
+.topic-card:hover h3.topic-title {
+    color: white;
+}
+
+h4.exercise-title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.topic-card:hover h4.exercise-title {
+    color: #7dd3fc;
+    font-weight: 500;
+}

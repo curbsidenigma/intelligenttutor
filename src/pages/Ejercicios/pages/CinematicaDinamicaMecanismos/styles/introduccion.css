@@ -1,13 +1,8 @@
-.introduccion-content {
-    background-color: white;
-    font-size: 16px;
-}
-
-.header-box {
+.exercise-title-box {
     text-align: center;
 }
 
-h1.header-title {
+h1.exercise-title {
     margin-top: 0.5rem;
     font-size: 2.5rem;
     line-height: 2.25rem;
@@ -16,7 +11,7 @@ h1.header-title {
     color: #111827;
 }
 
-h2.header-subtitle {
+h2.exercise-subtitle {
     font-size: 1rem;
     line-height: 1.5rem;
     color: var(--tec-blue);
@@ -28,35 +23,29 @@ h2.header-subtitle {
 .content-info-box {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
-    margin: auto;
-    max-width: 42rem;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.50rem;
 }
 
 .content-info-box .content-info {
     display: flex;
-    flex-basis: 50%;
+    padding: 0 1rem;
 }
 
-.content-info-box .content-info .info-icon {
+.content-info .info-icon {
     margin-top: 0.25rem;
+    padding-right: 0.75rem;
     color: #6b7280;
 }
 
-.content-info-box .content-info .info-text {
+.content-info .info-text {
     color: #6b7280;
 }
 
-.element-box {
+.paragraph-box {
     display: flex;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
     justify-content: center;
-}
-
-.element-box p.text {
-    text-align: justify;
-    font-size: large;
 }
