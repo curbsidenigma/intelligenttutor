@@ -19,12 +19,14 @@
     align-content: space-around;
 }
 
-.logo-text .logo-subtitle-text p {
+.logo-text .logo-subtitle-text p#logo-subtitle {
     font-size: 0.75rem;
     margin-bottom: -0.5rem;
+    font-family: Poppins, system-ui, sans-serif;
 }
 
-.logo-text .logo-title-text p {
+.logo-text .logo-title-text p#logo-title {
     font-size: 1rem;
     letter-spacing: -0.025rem;
+    font-family: Poppins, system-ui, sans-serif;
 }

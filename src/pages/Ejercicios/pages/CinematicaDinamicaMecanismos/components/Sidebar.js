@@ -5,7 +5,7 @@ import '../styles/sidebar.css'
 
 const Sidebar = () => {
     return (
-        <aside className='sidebar-content' aria-label='sidebar'>
+        <aside aria-label='sidebar'>
             <div className='sidebar-box'>
                 <ul className='space-y-2'>
                     {sidebarData.map((sidebarItem) => (

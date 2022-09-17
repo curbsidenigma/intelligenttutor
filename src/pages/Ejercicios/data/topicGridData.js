@@ -30,6 +30,14 @@ const topicGridData = [
         alt: 'Leyes de Kirchhoff',
         title: 'Circuitos Eléctricos',
         subtitle: 'Leyes de Kirchhoff'
+    },
+    {
+        id: 5,
+        link: '/intelligenttutor/404/',
+        img: 'https://cdn.stocksnap.io/img-thumbs/960w/calculator-calendar_RFVHCUGML3.jpg',
+        alt: 'Teorema de Green',
+        title: 'Cálculo',
+        subtitle: 'Teorema de Green'
     }
 ]
 

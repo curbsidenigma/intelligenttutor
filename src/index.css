@@ -15,8 +15,16 @@
   }
 
   @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
   html {
     font-family: Poppins, system-ui, sans-serif;
+  }
+
+  p {
+    font-family: Lora, serif;
+    text-align: justify;
+    font-size: 1.125rem;
+    line-height: 2rem;
   }
 }
