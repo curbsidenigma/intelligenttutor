@@ -1,19 +1,30 @@
-import { React, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import { Element } from 'react-scroll'
 import { MathJax, MathJaxContext } from 'better-react-mathjax'
 import { arc } from 'd3'
-import '../styles/cinematicaDinamicaMecanismos.css'
-import methods from './CinematicaDinamicaMecanismos/data/methods'
-import config from './CinematicaDinamicaMecanismos/data/config'
-import variablesData from './CinematicaDinamicaMecanismos/data/variablesData'
-import postData from './CinematicaDinamicaMecanismos/data/postData'
-import Sidebar from './CinematicaDinamicaMecanismos/components/Sidebar'
-import Introduccion from './CinematicaDinamicaMecanismos/components/Introduccion'
+import styled from 'styled-components'
+import './styles/cinematicaDinamicaMecanismos.css'
+import methods from './data/methods'
+import config from './data/config'
+import variablesData from './data/variablesData'
+import postData from './data/postData'
+import Sidebar from './components/Sidebar'
+import Introduccion from './components/Introduccion'
 
+const DynamicSidebar = styled.div`
+    width: ${(props) => (props.activate ? "280px" : "0px")};
+    padding: 2rem 1.5rem;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    transition: width 0.1s;
+`
 const CinematicaDinamicaMecanismos = () => {
     const post = postData
     const [points, setPoints] = useState(variablesData.pointsData)
     const [eventCounter, setEventCounter] = useState(0)
+    const [animateSidebar, setAnimateSidebar] = useState(false)
     const [plot, setPlot] = useState(false)
     const [canvasButton, setCanvasButton] = useState(false)
 
@@ -22,6 +33,17 @@ const CinematicaDinamicaMecanismos = () => {
     const [omega, setOmega] = useState(variablesData.omegaData)
     const [alpha, setAlpha] = useState(variablesData.alphaData)
 
+    const handleScroll = () => {
+        setAnimateSidebar(window.pageYOffset >= 100 ? true : false)
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    },[])
+    
     const handleClick = (event) => {
         if (eventCounter < 4) {
             const dim = event.target.getBoundingClientRect();
@@ -53,7 +75,7 @@ const CinematicaDinamicaMecanismos = () => {
                                 width="25"
                                 height="25"
                             >
-                                <img src={require('./CinematicaDinamicaMecanismos/svg/fixed-rotary-joint.svg').default} alt='Fixed Rotary Joint'/>
+                                <img src={require('./svg/fixed-rotary-joint.svg').default} alt='Fixed Rotary Joint'/>
                             </foreignObject>
                         ) : (<circle cx={point.x} cy={point.y} r={3} stroke='black' strokeWidth='2' fill='white'/>)}
                         <foreignObject
@@ -282,16 +304,7 @@ const CinematicaDinamicaMecanismos = () => {
     }
 
     return (
-        <div className='cuatro-barras-content'>
-            <div className='sidebar-content'>
-                <div className='sidebar-box'>
-                    <div className='sidebar-space'>
-                    </div>
-                    <div className='sidebar-content'>
-                        <Sidebar/>
-                    </div>
-                </div>
-            </div>
+        <main>
             <div className='main-content'>
                 <Element name='introduccion' className='element'>
                     <Introduccion/>
@@ -501,9 +514,11 @@ const CinematicaDinamicaMecanismos = () => {
                     </div>
                 </Element>
             </div>
-            <div className='cuatro-barras-space'>
-            </div>
-        </div>
+            <DynamicSidebar activate={animateSidebar}>
+                <Sidebar/>
+            </DynamicSidebar>
+            {/* <div className='right-space'></div> */}
+        </main>
     )
 }
 

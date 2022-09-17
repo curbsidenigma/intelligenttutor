@@ -3,12 +3,12 @@ import { Route, Routes } from 'react-router-dom'
 import './styles/app.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import Ingresar from './pages/Ingresar'
 import Registrarse from './pages/Registrarse'
-import Ejercicios from './pages/Ejercicios'
+import Ejercicios from './pages/Ejercicios/Ejercicios'
 import NoContent from './pages/NoContent'
-import CinematicaDinamicaMecanismos from './pages/Ejercicios/pages/CinematicaDinamicaMecanismos'
+import CinematicaDinamicaMecanismos from './pages/Ejercicios/pages/CinematicaDinamicaMecanismos/CinematicaDinamicaMecanismos'
 
 function App() {
   return (
