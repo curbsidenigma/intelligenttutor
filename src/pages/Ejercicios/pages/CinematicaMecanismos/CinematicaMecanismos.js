@@ -537,7 +537,7 @@ const CinematicaMecanismos = () => {
                                 <p>Resulta más sencillo y conveniente resolver el sistema empleando algún lenguaje de programación que tenga la capacidad de resolver sistemas de ecuaciones no lineales con ayuda de algún método numérico. Al resolver con Python se obtiene que:</p>
                             </div>
                             <div className='equation-box'>
-                                <p><MathJax inline>{`$\\theta_3 = ${methods.rad2deg(parseFloat(theta[2].magnitude)).toFixed(2)}°$`}</MathJax> y <MathJax inline>{`$\\theta_4 = ${methods.rad2deg(parseFloat(theta[3].magnitude)).toFixed(2)}°$`}</MathJax></p>
+                                <p><MathJax inline dynamic>{`$\\theta_3 = ${methods.rad2deg(parseFloat(theta[2].magnitude)).toFixed(2)}°$`}</MathJax> y <MathJax inline dynamic>{`$\\theta_4 = ${methods.rad2deg(parseFloat(theta[3].magnitude)).toFixed(2)}°$`}</MathJax></p>
                             </div>
                         </MathJaxContext>
                     </div>
