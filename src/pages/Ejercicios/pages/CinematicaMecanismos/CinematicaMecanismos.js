@@ -432,6 +432,9 @@ const CinematicaMecanismos = () => {
                             </div>
                             <div className='equation-box'>
                                 <p><MathJax inline>{'$\\begin{cases} r_3\\;\\mathrm{cos}\\theta_3 - r_4\\;\\mathrm{cos}\\theta_4 = r_1 - r_2\\;\\mathrm{cos}\\theta_2 \\\\ r_3\\;\\mathrm{sen}\\theta_3 - r_4\\;\\mathrm{sen}\\theta_4 = - r_2\\;\\mathrm{sen}\\theta_2 \\end{cases}$'}</MathJax></p>
+                                <div className='equation-number'>
+                                    <p><MathJax inline>{'$(1)$'}</MathJax></p>
+                                </div>
                             </div>
                         </MathJaxContext>
                     </div>
@@ -451,9 +454,6 @@ const CinematicaMecanismos = () => {
                                         <tr>
                                             <th scope='col'>
                                                 Nombre de la variable
-                                            </th>
-                                            <th scope='col'>
-                                                Representación
                                             </th>
                                             <th scope='col'>
                                                 Símbolo
@@ -476,11 +476,6 @@ const CinematicaMecanismos = () => {
                                                     </td>
                                                     <td>
                                                         <MathJax inline dynamic>
-                                                            {`$\\overline{${data.canvas}}$`}
-                                                        </MathJax>
-                                                    </td>
-                                                    <td>
-                                                        <MathJax inline dynamic>
                                                             {`$${data.mathJax}$`}
                                                         </MathJax>
                                                     </td>
@@ -494,11 +489,6 @@ const CinematicaMecanismos = () => {
                                             <tr className='border-b'>
                                                 <td>
                                                     {theta[1].name.charAt(0).toUpperCase() + theta[1].name.slice(1)}
-                                                </td>
-                                                <td>
-                                                    <MathJax inline dynamic>
-                                                        {`$\\widehat{${theta[1].canvas}}$`}
-                                                    </MathJax>
                                                 </td>
                                                 <td>
                                                     <MathJax inline dynamic>
@@ -523,9 +513,33 @@ const CinematicaMecanismos = () => {
                         <div className='subtitle-box'>
                             <h2 className='subtitle'>Paso Cuatro: Resolver, Analizar y Verificar</h2>
                         </div>
-                        <div className='paragraph-box'>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a tincidunt est, nec sollicitudin dui. Pellentesque auctor tellus eu ipsum tempus efficitur. Cras varius augue sit amet ipsum dapibus dictum. Vestibulum dapibus sit amet arcu sit amet fermentum. Maecenas consectetur risus sit amet velit congue, vel blandit dui ornare.</p>
+                        <div className='subsubtitle-box'>
+                            <h3 className='subsubtitle'>Análisis de posición</h3>
                         </div>
+                        <MathJaxContext
+                                version={2}
+                                config={config.mathJaxConfig}
+                                onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
+                        >
+                            <div className='paragraph-box'>
+                                <p>Para obtener <MathJax inline>{'$\\theta_3$'}</MathJax> y <MathJax inline>{'$\\theta_4$'}</MathJax>, sustituimos los valores de la tabla en el sistema de ecuaciones <MathJax inline>{'$(1)$'}</MathJax>:</p>
+                            </div>
+                            <div className='equation-box'>
+                                <p><MathJax inline dynamic>{`$\\begin{cases} ${r[2].magnitude}\\;\\mathrm{cos}\\theta_3 - ${r[3].magnitude}\\;\\mathrm{cos}\\theta_4 = ${r[0].magnitude} - ${r[1].magnitude}\\;\\mathrm{cos}(${methods.rad2deg(parseFloat(theta[1].magnitude)).toFixed(2)}°) \\\\ ${r[2].magnitude}\\;\\mathrm{sen}\\theta_3 - ${r[3].magnitude}\\;\\mathrm{sen}\\theta_4 = - ${r[1].magnitude}\\;\\mathrm{sen}(${methods.rad2deg(parseFloat(theta[1].magnitude)).toFixed(2)}°) \\end{cases}$`}</MathJax></p>
+                            </div>
+                            <div className='paragraph-box'>
+                                <p>Al hacer el álgebra de los términos constantes, el sistema se simplifica y puede ser resuelto analíticamente:</p>
+                            </div>
+                            <div className='equation-box'>
+                                <p><MathJax inline dynamic>{`$\\begin{cases} ${r[2].magnitude}\\;\\mathrm{cos}\\theta_3 - ${r[3].magnitude}\\;\\mathrm{cos}\\theta_4 = ${(r[0].magnitude - r[1].magnitude * Math.cos(theta[1].magnitude)).toFixed(2)} \\\\ ${r[2].magnitude}\\;\\mathrm{sen}\\theta_3 - ${r[3].magnitude}\\;\\mathrm{sen}\\theta_4 = ${(-r[1].magnitude * Math.sin(theta[1].magnitude)).toFixed(2)} \\end{cases}$`}</MathJax></p>
+                            </div>
+                            <div className='paragraph-box'>
+                                <p>Resulta más sencillo y conveniente resolver el sistema empleando algún lenguaje de programación que tenga la capacidad de resolver sistemas de ecuaciones no lineales con ayuda de algún método numérico. Al resolver con Python se obtiene que:</p>
+                            </div>
+                            <div className='equation-box'>
+                                <p><MathJax inline>{`$\\theta_3 = ${methods.rad2deg(parseFloat(theta[2].magnitude)).toFixed(2)}°$`}</MathJax> y <MathJax inline>{`$\\theta_4 = ${methods.rad2deg(parseFloat(theta[3].magnitude)).toFixed(2)}°$`}</MathJax></p>
+                            </div>
+                        </MathJaxContext>
                     </div>
                 </Element>
             </div>
