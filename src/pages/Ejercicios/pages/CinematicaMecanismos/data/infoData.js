@@ -10,7 +10,7 @@ const infoData = [
     {
         id: 2,
         icon: <AiOutlineClockCircle/>,
-        text: 'Actualizado el 16 sep de 2022'
+        text: 'Actualizado el 02 de oct de 2022'
     },
     {
         id: 3,

@@ -8,7 +8,7 @@ import Ingresar from './pages/Ingresar'
 import Registrarse from './pages/Registrarse'
 import Ejercicios from './pages/Ejercicios/Ejercicios'
 import NoContent from './pages/NoContent'
-import CinematicaDinamicaMecanismos from './pages/Ejercicios/pages/CinematicaDinamicaMecanismos/CinematicaDinamicaMecanismos'
+import CinematicaMecanismos from './pages/Ejercicios/pages/CinematicaMecanismos/CinematicaMecanismos'
 
 function App() {
   return (
@@ -33,8 +33,8 @@ function App() {
             element={<Ejercicios/>}
           />
             <Route
-              path='/intelligenttutor/ejercicios/cinematica-dinamica-mecanismos/'
-              element={<CinematicaDinamicaMecanismos/>}
+              path='/intelligenttutor/ejercicios/cinematica-mecanismos/'
+              element={<CinematicaMecanismos/>}
             />
           <Route
             path='/intelligenttutor/404/'
