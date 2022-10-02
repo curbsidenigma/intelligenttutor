@@ -1,7 +1,7 @@
 const topicGridData = [
     {
         id: 1,
-        link: '/intelligenttutor/ejercicios/cinematica-dinamica-mecanismos/',
+        link: '/intelligenttutor/ejercicios/cinematica-mecanismos/',
         img: 'https://cdn.stocksnap.io/img-thumbs/960w/still-items_LCLKTHHCMX.jpg',
         alt: 'Mecanismos de cuatro barras',
         title: 'Análisis de Mecanismos',

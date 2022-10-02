@@ -7,11 +7,11 @@ const Introduccion = () => {
         <section>
             <div className='exercise-title-box'>
                 <h2 className='exercise-subtitle'>Análisis y Simulación de Mecanismos </h2>
-                <h1 className='exercise-title'>Cinemática y dinámica de mecanismos</h1>
+                <h1 className='exercise-title'>Cinemática de mecanismos</h1>
             </div>
             <div className='content-info-box'>
-                {infoData.map(data => (
-                    <div className='content-info'>
+                {infoData.map((data, i) => (
+                    <div className='content-info' key={i}>
                         <span className='info-icon'>
                             {data.icon}
                         </span>
