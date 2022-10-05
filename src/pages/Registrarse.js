@@ -7,7 +7,7 @@ const Registrarse = () => {
             <div className='title-box'>
                 <div>
                     <img className='title-logo' src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
-                    <h2 className='title'>Regístrate</h2>
+                    <h2 className='login-title'>Regístrate</h2>
                     <p className='description'>
                         O&nbsp;
                         <Link to='/intelligenttutor/ingresar/' className='register-link'>ingresa con tu cuenta</Link>
@@ -16,7 +16,6 @@ const Registrarse = () => {
                 </div>
                 <form>
                     <input type='hidden' name='remember' value='true'></input>
-
                     <div className='login-box shadow-sm -space-y-px'>
                         <div>
                             <label for='name' className='sr-only'>Nombre</label>
@@ -31,14 +30,12 @@ const Registrarse = () => {
                             <input required type='password' name='password' placeholder='Contraseña' className='bottom-input'/>
                         </div>
                     </div>
-
                     <div className='password-box'>
                         <div className='remember-box'>
                             <input type='checkbox'/>
                             <label for='remember-me'>Recordarme</label>
                         </div>
                     </div>
-
                     <div>
                         <button type='submit' className='login-button group'>
                             <span className='button-svg'>

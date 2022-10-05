@@ -8,7 +8,7 @@ const Ingresar = () => {
             <div className='title-box'>
                 <div>
                     <img className='title-logo' src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
-                    <h2 className='title'>Ingresa</h2>
+                    <h2 className='login-title'>Ingresa</h2>
                     <p className='description'>
                         O&nbsp;
                         <Link to='/intelligenttutor/registrarse/' className='register-link'>crea tu cuenta</Link>
@@ -17,25 +17,23 @@ const Ingresar = () => {
                 </div>
                 <form>
                     <input type='hidden' name='remember' value='true'></input>
-
-                    <div className='login-box shadow-sm -space-y-px'>
+                    <div className='login-box'>
                         <div>
                             <label for='email' className='sr-only'>Email</label>
-                            <input required type='text' name='email' placeholder='Email' className='top-input focus:ring-tec-blue'/>
+                            <input id='email' name='email' type='email' required className='top-input' placeholder='Email'/>
                         </div>
                         <div>
                             <label for='password' className='sr-only'>Contraseña</label>
-                            <input required type='password' name='password' placeholder='Contraseña' className='bottom-input focus:ring-tec-blue'/>
+                            <input required type='password' name='password' placeholder='Contraseña' className='bottom-input'/>
                         </div>
                     </div>
-
                     <div className='password-box'>
                         <div className='remember-box'>
                             <input type='checkbox'/>
                             <label for='remember-me'>Recordarme</label>
                         </div>
                         <div className='text-sm'>
-                            <Link to='/intelligenttutor/404/' className='forget-text hover:text-true-blue'>
+                            <Link to='/intelligenttutor/404/' className='forget-text'>
                                 ¿Olvidaste tu contraseña?
                             </Link>
                         </div>
