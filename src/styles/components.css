@@ -88,6 +88,10 @@ nav .login-nav-box {
     background-color: var(--yale-blue);
 }
 
+.burger-menu {
+    visibility: hidden;
+}
+
 @media only screen and (max-width: 1024px) {
     .logo-box {
         margin-bottom: 0;
@@ -106,6 +110,16 @@ nav .login-nav-box {
     nav .login-nav-box {
         justify-content: center;
         margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    header {
+        visibility: hidden;
+    }
+
+    .burger-menu {
+        visibility: visible;
     }
 }
 
