@@ -1,20 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import '../styles/logo.css'
 
 const Logo = () => {
     return (
-        <Link to='/intelligenttutor/' className='logo'>
-            <img src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM'></img>
-            <div className='logo-text'>
-                <div className='logo-subtitle-text'>
-                    <p id='logo-subtitle'>NOVUS</p>
+        <>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_del_ITESM.svg' alt='Logo ITESM' className='Logo-logo'></img>
+            <div className='Logo-text'>
+                <div className='Logo-subtitle'>
+                    <p id='Logo-Subtitle-text'>NOVUS</p>
                 </div>
-                <div className='logo-title-text'>
-                    <p id='logo-title'>Asesor Inteligente</p>
+                <div className='Logo-title'>
+                    <p id='Logo-Title-text'>Asesor Inteligente</p>
                 </div>
             </div>
-        </Link>
+        </>
     )
 }
 
