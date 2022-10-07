@@ -1,0 +1,137 @@
+header.Header-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.Header-background {
+    width: 97%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 0;
+    border-bottom-width: 2px;
+    border-color: var(--gray-100);
+}
+
+.Header-title {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+    z-index: 2;
+}
+
+.Header-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    width: 100%;
+    z-index: 1;
+}
+
+.Header-link {
+    padding: 0.625rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: var(--gray-500);
+}
+
+.Header-link:hover {
+    color: var(--gray-900);
+}
+
+.Header-Register-link {
+    margin-left: 1rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-width: 1px;
+    border-color: transparent;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background-color: var(--tec-blue);
+}
+
+.Header-Register-link:hover {
+    background-color: var(--yale-blue);
+}
+
+.Header-break {
+    flex-grow: 1;
+}
+
+button.Header-button {
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    .Header-title {
+        position: static;
+        flex-basis: 100%;
+        margin-bottom: 1.25rem;
+    }
+
+    .Header-break {
+        flex-grow: 0;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    header.Header-header {
+        padding: 2rem 2rem 1rem;
+    }
+
+    .Header-title {
+        margin-bottom: 0.75rem;
+    }
+
+    .Header-background {
+        width: 87%
+    }
+    
+    .Header-nav {
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .Header-link {
+        width: 100%;
+    }
+
+    .Header-Register-link {
+        max-width: fit-content;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    button.Header-button {
+        display: flex;
+        width: 100%;
+        padding: 0.625rem;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    button.Header-button span {
+        margin-left: 0.325rem;
+    }
+}

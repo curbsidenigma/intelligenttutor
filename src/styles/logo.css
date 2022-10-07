@@ -1,17 +1,10 @@
-.logo {
-    display: flex;
-    align-items: center;
-    text-align: justify;
-    z-index: 1;
-}
-
-.logo img {
+img.Logo-logo {
     margin-right: 0.75rem;
     height: 3rem;
     width: auto;
 }
 
-.logo .logo-text {
+.Logo-text {
     display: flex;
     flex-direction: column;
     color: var(--tec-blue);
@@ -19,13 +12,13 @@
     align-content: space-around;
 }
 
-.logo-text .logo-subtitle-text p#logo-subtitle {
+.Logo-subtitle p#Logo-Subtitle-text {
     font-size: 0.75rem;
     margin-bottom: -0.5rem;
     font-family: Poppins, system-ui, sans-serif;
 }
 
-.logo-text .logo-title-text p#logo-title {
+.Logo-title p#Logo-Title-text {
     font-size: 1rem;
     letter-spacing: -0.025rem;
     font-family: Poppins, system-ui, sans-serif;
