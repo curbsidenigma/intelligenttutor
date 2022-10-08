@@ -30,13 +30,17 @@ header.Header-header {
     z-index: 2;
 }
 
-.Header-nav {
+nav.Header-Big-nav {
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: flex-start;
     width: 100%;
     z-index: 1;
+}
+
+nav.Header-Small-nav {
+    display: none;
 }
 
 .Header-link {
@@ -105,10 +109,18 @@ button.Header-button {
         width: 87%
     }
     
-    .Header-nav {
-        justify-content: center;
+    nav.Header-Big-nav {
+        display: none;
+    }
+
+    nav.Header-Small-nav {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-start;
         width: 100%;
+        z-index: 1;
     }
     
     .Header-link {

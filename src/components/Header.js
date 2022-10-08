@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CgMenu, CgClose } from "react-icons/cg"
 import '../styles/header.css'
@@ -7,24 +7,6 @@ import Navbar from './Navbar'
 
 const Header = () => {
     const [menu, setMenu] = useState(false)
-    const [screen650, setScreen650] = useState(false)
-    const [dimensions, setDimensions] = useState({ 
-        height: window.innerHeight,
-        width: window.innerWidth
-    })
-    useEffect(() => {
-        function handleResize() {
-            setDimensions({
-                height: window.innerHeight,
-                width: window.innerWidth
-            })
-            dimensions.width <= 650 ? setScreen650(true) : setScreen650(false)
-        }
-        window.addEventListener('resize', handleResize)
-        return _ => {
-          window.removeEventListener('resize', handleResize)
-        }
-    })
     
     const menuHandler = () => {
         setMenu(!menu)
@@ -37,7 +19,10 @@ const Header = () => {
             <Link to='/intelligenttutor/' className='Header-title'>
                 <Logo />
             </Link>
-            <nav className='Header-nav'>
+            <nav className='Header-Big-nav'>
+                <Navbar />
+            </nav>
+            <nav className='Header-Small-nav'>
                 <button className='Header-button' onClick={menuHandler}>
                     {!menu ? <>
                         <CgMenu /><span>Menu</span>
@@ -45,12 +30,7 @@ const Header = () => {
                         <CgClose /><span>Cerrar</span>
                     </>}
                 </button>
-                {!screen650 && <>
-                    <Navbar />
-                </>}
-                {menu && <>
-                    <Navbar />
-                </>}
+                {menu && <Navbar />}
             </nav>
         </header>
     )
