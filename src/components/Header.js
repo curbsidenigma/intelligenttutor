@@ -14,8 +14,7 @@ const Header = () => {
 
     return (
         <header className='Header-header'>
-            <div className='Header-background'>
-            </div>
+            <div className='Header-background'></div>
             <Link to='/intelligenttutor/' className='Header-title'>
                 <Logo />
             </Link>
