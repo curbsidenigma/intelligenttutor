@@ -42,9 +42,7 @@ function App() {
           />
         </Routes>
       </div>
-      <div className='footer'>
-        <Footer/>
-      </div>
+      <Footer/>
     </div>
   );
 }
